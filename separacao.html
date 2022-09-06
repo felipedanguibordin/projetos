@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <title>Distribuidores dos Estados</title>
+</head>
+<body>
+    <h1>Distribuidores em cada estado</h1>
+    <select class="form-select" aria-label="Default select example" id="select" onchange="est()">
+        <option selected>Clientes</option>
+        <option value="REALEZA ON LINE">REALEZA ON LINE</option>
+        <option value="KLOTZ CONSULTORIA">KLOTZ CONSULTORIA</option>
+        <option value="BUTTERFLY INFORMATICA">BUTTERFLY INFORMATICA</option>
+        <option value="MICROLAN">MICROLAN</option>
+        <option value="DATASIS INFORMATICA">DATASIS INFORMATICA</option>
+        <option value="XPERT TECNOLOGIA EM AUTOMAÇÃO">XPERT TECNOLOGIA EM AUTOMAÇÃO</option>
+        <option value="EDERALDO LUIZ RATZ">EDERALDO LUIZ RATZ</option>
+        <option value="DATAMIX SISTEMAS">DATAMIX SISTEMAS</option>
+        <option value="XPERT BRASILIA">XPERT BRASILIA</option>
+        <option value="PUBLIDATA INFORMATICA">PUBLIDATA INFORMATICA</option>
+        <option value="VIAMAX">VIAMAX</option>
+        <option value="RONDONIA TECNOLOGIA">RONDONIA TECNOLOGIA</option>
+        <option value="ST INFORMATICA">ST INFORMATICA</option>
+        <option value="PROLINK BRASILIA">PROLINK BRASILIA</option>
+        <option value="ELI ANTONIO MARTINS">ELI ANTONIO MARTINS</option>
+        <option value="BOAVISTA SERVICOS TECNOLOGICOS">BOAVISTA SERVICOS TECNOLOGICOS</option>
+        <option value="C.R.E. AUTOMACAO COMERCIAL">C.R.E. AUTOMACAO COMERCIAL</option>
+        <option value="STARK AUTOMAÇÃO">STARK AUTOMAÇÃO</option>
+        <option value="LP SERVICE INFORMATICA">LP SERVICE INFORMATICA</option>
+        <option value="DOUGLAS WEIDMAN SERV. E CONS. EM INF. LT">DOUGLAS WEIDMAN SERV. E CONS. EM INF. LT</option>
+        <option value="JOSE CARLOS PEREIRA PAIVA">JOSE CARLOS PEREIRA PAIVA</option>
+        <option value="LEADER SOLUTIONS">LEADER SOLUTIONS</option>
+        <option value="DATAMIX INFORMATICA GERENCIAL">DATAMIX INFORMATICA GERENCIAL</option>
+        <option value="EHRICH TECNOLOGIA">EHRICH TECNOLOGIA</option>
+        <option value="SILVANO DE SOUZA">SILVANO DE SOUZA</option>
+        <option value="NORBERTO JUSTINO PIAIA">NORBERTO JUSTINO PIAIA</option>
+        <option value="CALUNATY INFORMÁTICA">CALUNATY INFORMÁTICA</option>
+        <option value="SOFT TECH SISTEMAS DE AUTOMAÇÃO LTDA">SOFT TECH SISTEMAS DE AUTOMAÇÃO LTDA</option>
+        <option value="NES SUPORTE BH">NES SUPORTE BH</option>
+        <option value="EXACT INFORMÁTICA">EXACT INFORMÁTICA</option>
+        <option value="M IZABEL KALINKE & CIA LTDA">M IZABEL KALINKE & CIA LTDA</option>
+        <option value="LUIZ CARLOS ALVAREZ GOMEZ">LUIZ CARLOS ALVAREZ GOMEZ</option>
+        <option value="SKYNET INFORMÁTICA">SKYNET INFORMÁTICA</option>
+        <option value="FRANCISCO HERRERA">FRANCISCO HERRERA</option>
+        <option value="FENIX INFORMATICA">FENIX INFORMATICA</option>
+        <option value="CSKG TREINAMENTOS">CSKG TREINAMENTOS</option>
+        <option value="RESULT COMERCIO & REPRESENTACAO">RESULT COMERCIO & REPRESENTACAO</option>
+        <option value="RASCOM TECNOLOGIA">RASCOM TECNOLOGIA</option>
+        <option value="SIGMA INFORMATICA">SIGMA INFORMATICA</option>
+        <option value="INFO PRIX SUPORTE E REDE">INFO PRIX SUPORTE E REDE</option>
+        <option value="PROFICIO AUTOMAÇÃO">PROFICIO AUTOMAÇÃO</option>
+        <option value="ACR TECNOLOGIA E SERVICOS">ACR TECNOLOGIA E SERVICOS</option>
+        <option value="INFOSYSTEM COM. DE EQUIP. DE INFORMATICA">INFOSYSTEM COM. DE EQUIP. DE INFORMATICA</option>
+        <option value="PASQUA INFORMATICA">PASQUA INFORMATICA</option>
+        <option value="DATASELL COMÉRCIO">DATASELL COMÉRCIO</option>
+        <option value="NEWARE SOLUTIONS">NEWARE SOLUTIONS</option>
+        <option value="COMP SISTEM">COMP SISTEM</option>
+        <option value="REALNET CHAPECÓ">REALNET CHAPECÓ</option>
+        <option value="GYNXPERT SISTEMAS">GYNXPERT SISTEMAS</option>
+        <option value="ELETRONITEC">ELETRONITEC</option>
+        <option value="MILENIUM INFORMATICA CLESSERSON PRADO">MILENIUM INFORMATICA CLESSERSON PRADO</option>
+        <option value="C. L. T. INFORMATICA LTDA ME">C. L. T. INFORMATICA LTDA ME</option>
+        <option value="JEFERSON KAGHOFER">JEFERSON KAGHOFER</option>
+        <option value="JOAO REINALDO PONTES">JOAO REINALDO PONTES</option>
+        <option value="FABRICIO AUGUSTO RODRIGUES FORMIGONI">FABRICIO AUGUSTO RODRIGUES FORMIGONI</option>
+        <option value="BRESSANE SERVIÇOS DE INFORMÁTICA">BRESSANE SERVIÇOS DE INFORMÁTICA</option>
+        <option value="DATASIS PATO BRANCO">DATASIS PATO BRANCO</option>
+        <option value="ACF INFORMATICA">ACF INFORMATICA</option>
+        <option value="FRANCISCO DOUGLAS HERRERA">FRANCISCO DOUGLAS HERRERA</option>
+        <option value="CHJ INFORMATICA">CHJ INFORMATICA</option>
+        <option value="G I SOFT INFORMATICA">G I SOFT INFORMATICA</option>
+        <option value="INFOPEL SOLUÇÕES">INFOPEL SOLUÇÕES</option>
+        <option value="DIGITAL AUTOMAÇÃO COMERCIAL">DIGITAL AUTOMAÇÃO COMERCIAL</option>
+        <option value="TEOREMA INFORMÁTICA">TEOREMA INFORMÁTICA</option>
+        <option value="POSTECH REPRESENTAÇÕES">POSTECH REPRESENTAÇÕES</option>
+        <option value="BKE">BKE</option>
+        <option value="RENSOFTWARE INFO">RENSOFTWARE INFO</option>
+        <option value="SETA AUTOMAÇÂO">SETA AUTOMAÇÂO</option>
+        <option value="CENTER SYSTEM BRUSQUE">CENTER SYSTEM BRUSQUE</option>
+        <option value="7CONNECTION">7CONNECTION</option>
+        <option value="MC MANUTENCAO E SISTEMAS">MC MANUTENCAO E SISTEMAS</option>
+        <option value="INFOSTERN INFORMATICA PY">INFOSTERN INFORMATICA PY</option>
+        <option value="SOMAX AUTOMAÇÃO">SOMAX AUTOMAÇÃO</option>
+        <option value="INFORDATA">INFORDATA</option>
+        <option value="LEOSOFT INFORMÁTICA">LEOSOFT INFORMÁTICA</option>
+        <option value="M3 INFORMÁTICA E GAMES">M3 INFORMÁTICA E GAMES</option>
+        <option value="BASE PRODUTOS E SERVIÇOS EM INFORMÁTICA">BASE PRODUTOS E SERVIÇOS EM INFORMÁTICA</option>
+        <option value="TRIO COMPANY DO BRASIL">TRIO COMPANY DO BRASIL</option>
+        <option value="PERFIL COMPUTADORES">PERFIL COMPUTADORES</option>
+        <option value="DYNATEK AUTOMAÇÃO">DYNATEK AUTOMAÇÃO</option>
+        <option value="CENTER SYSTEM AUTOMAÇÃO">CENTER SYSTEM AUTOMAÇÃO</option>
+        <option value="ELLMAQ - ECF">ELLMAQ - ECF</option>
+        <option value="CENTERMAQ">CENTERMAQ</option>
+        <option value="ARC SOLUTIONS">ARC SOLUTIONS</option>
+        <option value="DUALL TECH INFORMÁTICA">DUALL TECH INFORMÁTICA</option>
+        <option value="LAC DIGITAL">LAC DIGITAL</option>
+        <option value="LOGON TECNOLOGIA">LOGON TECNOLOGIA</option>
+        <option value="PDV EXPRESS TECNOLOGIA AUTOMAÇÃO E CONTROLE">PDV EXPRESS TECNOLOGIA AUTOMAÇÃO E CONTROLE</option>
+        <option value="BIROSKÃO INFORMÁTICA">BIROSKÃO INFORMÁTICA</option>
+        <option value="DELVALE TECNOLOGIA">DELVALE TECNOLOGIA</option>
+        <option value="ACCESS COMERCIO E SERVIÇOS">ACCESS COMERCIO E SERVIÇOS</option>
+        <option value="SOFTCOR INFORMÁTICA">SOFTCOR INFORMÁTICA</option>
+        <option value="DELVALE INFORMATICA">DELVALE INFORMATICA</option>
+        <option value="SIGA AUTOMAÇÃO COMERCIAL">SIGA AUTOMAÇÃO COMERCIAL</option>
+        <option value="INSTALADORA ADRIANA">INSTALADORA ADRIANA</option>
+        <option value="CAP INFORMÁTICA">CAP INFORMÁTICA</option>
+        <option value="MD SOLUCOES EM TECNOLOGIA">MD SOLUCOES EM TECNOLOGIA</option>
+        <option value="SMC INFORMATICA">SMC INFORMATICA</option>
+        <option value="P21 PROJETO21">P21 PROJETO21</option>
+        <option value="PEG INFORMÁTICA">PEG INFORMÁTICA</option>
+        <option value="INDECK CONSULTORIA">INDECK CONSULTORIA</option>
+        <option value="TIC SISTEMAS & AUTOMAÇÃO">TIC SISTEMAS & AUTOMAÇÃO</option>
+        <option value="TECHVIA">TECHVIA</option>
+        <option value="ANIBALTEC">ANIBALTEC</option>
+        <option value="LEANTECH INFORMATICA">LEANTECH INFORMATICA</option>
+        <option value="INFOHARD ASSISTÊNCIA TÉCNICA">INFOHARD ASSISTÊNCIA TÉCNICA</option>
+        <option value="L&S AUTOMACAO">L&S AUTOMACAO</option>
+        <option value="PLENITUDE INFORMATICA">PLENITUDE INFORMATICA</option>
+        <option value="TECNOPRINTER">TECNOPRINTER</option>
+        <option value="SAG AUTOMAÇÃO COMERCIAL E INDUSTRIAL">SAG AUTOMAÇÃO COMERCIAL E INDUSTRIAL</option>
+        <option value="SAC SISTEMAS">SAC SISTEMAS</option>
+        <option value="MOURA'S AUTOMAÇÃO">MOURA'S AUTOMAÇÃO</option>
+        <option value="PRECISAO">PRECISAO</option>
+        <option value="COLINAS INFORMATICA">COLINAS INFORMATICA</option>
+        <option value="DOUGLAS MARTINS DE OLIVEIRA">DOUGLAS MARTINS DE OLIVEIRA</option>
+        <option value="ATC INFORMÁTICA">ATC INFORMÁTICA</option>
+        <option value="BARBOSA CONVENIENCIA">BARBOSA CONVENIENCIA</option>
+        <option value="CONSULSOFT - O SEU SOFTWARE SOB MEDIDA">CONSULSOFT - O SEU SOFTWARE SOB MEDIDA</option>
+        <option value="PLENITUDE INFORMÁTICA E SISTEMAS">PLENITUDE INFORMÁTICA E SISTEMAS</option>
+        <option value="ICMC">ICMC</option>
+        <option value="WWA INFORMÁTICA">WWA INFORMÁTICA</option>
+        <option value="COSTA AZUL AUTOMAÇÃO COMERCIAL">COSTA AZUL AUTOMAÇÃO COMERCIAL</option>
+        <option value="AUTOMATEC AUTOMAÇÃO COMERCIAL">AUTOMATEC AUTOMAÇÃO COMERCIAL</option>
+        <option value="RECOMAQ AUTOMAÇÃO COMERCIAL">RECOMAQ AUTOMAÇÃO COMERCIAL</option>
+        <option value="PJM AUTOMAÇÃO">PJM AUTOMAÇÃO</option>
+        <option value="SISTEC INFORMATICA E ACESSORIOS">SISTEC INFORMATICA E ACESSORIOS</option>
+        <option value="MICROTECH INFOMÁTICA">MICROTECH INFOMÁTICA</option>
+        <option value="COMPUCENTER AUTOMACAO">COMPUCENTER AUTOMACAO</option>
+        <option value="AUTINFO-AUTOMACAO E INFORMATICA POSTOS DE COMBUSTIVEIS">AUTINFO-AUTOMACAO E INFORMATICA POSTOS DE COMBUSTIVEIS</option>
+        <option value="SPONSOR">SPONSOR</option>
+        <option value="INFOTEK">INFOTEK</option>
+        <option value="FOX INFORMATICA">FOX INFORMATICA</option>
+        <option value="MEGA SOFT INFORMATICA">MEGA SOFT INFORMATICA</option>
+        <option value="EPSY">EPSY</option>
+        <option value="LINK INFORMÁTICA">LINK INFORMÁTICA</option>
+        <option value="CIGAM PRODALY">CIGAM PRODALY</option>
+        <option value="LUMI INFORMATICA">LUMI INFORMATICA</option>
+        <option value="CN SYSTEM">CN SYSTEM</option>
+        <option value="ASSISTENCIA GEMAQ">ASSISTENCIA GEMAQ</option>
+        <option value="APOLO INFORMATICA">APOLO INFORMATICA</option>
+        <option value="VIA AUTOMACAO">VIA AUTOMACAO</option>
+        <option value="INFOTECH INFORMATICA">INFOTECH INFORMATICA</option>
+        <option value="SUPORTTES">SUPORTTES</option>
+        <option value="ILHATECH & POSTOMATIC">ILHATECH & POSTOMATIC</option>
+        <option value="PRO X AUTOMAÇÕES">PRO X AUTOMAÇÕES</option>
+        <option value="OUROTECH INFORMATIZACAO EMPRESARIAL">OUROTECH INFORMATIZACAO EMPRESARIAL</option>
+        <option value="WAYBIT SOFTWARE">WAYBIT SOFTWARE</option>
+        <option value="INTECOM">INTECOM</option>
+        <option value="SET SYSTEM INFORMATICA">SET SYSTEM INFORMATICA</option>
+        <option value="GML IMBRAPOSTOS">GML IMBRAPOSTOS</option>
+        <option value="GENESIS INFO">GENESIS INFO</option>
+        <option value="MEGATEF">MEGATEF</option>
+        <option value="RR AUTOMAÇÃO INFORMÁTICA SERVIÇOS">RR AUTOMAÇÃO INFORMÁTICA SERVIÇOS</option>
+        <option value="R.A - INFORMÁTICA E AUTOMAÇÃO">R.A - INFORMÁTICA E AUTOMAÇÃO</option>
+        <option value="MSR SOLUCOES EM AUTOMACAO COMERCIAL ME">MSR SOLUCOES EM AUTOMACAO COMERCIAL ME</option>
+        <option value="WSG SISTEMAS">WSG SISTEMAS</option>
+        <option value="MCN SOLUCOES EM INFORMATICA">MCN SOLUCOES EM INFORMATICA</option>
+        <option value="AS & AS AUTOMAÇÃO E INFORMÁTICA">AS & AS AUTOMAÇÃO E INFORMÁTICA</option>
+        <option value="DSTEC">DSTEC</option>
+        <option value="EPTUS">EPTUS</option>
+        <option value="PRO X AUTOMAÇÕES">PRO X AUTOMAÇÕES</option>
+        <option value="FMOTTA COMERCIO E REPRESENTAÇÕES">FMOTTA COMERCIO E REPRESENTAÇÕES</option>
+        <option value="UNIFICA CONSULTORIA E SOFTWARE">UNIFICA CONSULTORIA E SOFTWARE</option>
+        <option value="EVOLUTION SISTEMAS">EVOLUTION SISTEMAS</option>
+        <option value="XCOM AUTOMACAO">XCOM AUTOMACAO</option>
+        <option value="MAIS AUTOMACAO">MAIS AUTOMACAO</option>
+        <option value="XTEC SISTEMAS E SUPORTE">XTEC SISTEMAS E SUPORTE</option>
+        <option value="PQ INFO">PQ INFO</option>
+        <option value="CLICK">CLICK</option>
+        <option value="APOLU SOLUÇÕES">APOLU SOLUÇÕES</option>
+        <option value="STARTXRR SOFTWARE">STARTXRR SOFTWARE</option>
+        <option value="GEW EMPREENDIMENTOS">GEW EMPREENDIMENTOS</option>
+        <option value="GOLDEN INFORMATICA">GOLDEN INFORMATICA</option>
+        <option value="CR1 SOLUÇÕES EM INFORMÁTICA AUTOMAÇÃO E SUPORTE LTDA">CR1 SOLUÇÕES EM INFORMÁTICA AUTOMAÇÃO E SUPORTE LTDA</option>
+        <option value="REFH SOLUCOES E ASSESSORIA">REFH SOLUCOES E ASSESSORIA</option>
+        <option value="SOMA AUTOMAÇÃO">SOMA AUTOMAÇÃO</option>
+        <option value="DATABITS TECNOLOGIAS COMERCIAIS">DATABITS TECNOLOGIAS COMERCIAIS</option>
+        <option value="IDEALSYS AUTOMACAO COMERCIAL">IDEALSYS AUTOMACAO COMERCIAL</option>
+        <option value="PROMAQ">PROMAQ</option>
+        <option value="J.A. INFORMÁTICA E AUTOMACÃO">J.A. INFORMÁTICA E AUTOMACÃO</option>
+        <option value="BM INFORMÁTICA">BM INFORMÁTICA</option>
+        <option value="AGRO 10">AGRO 10</option>
+        <option value="MAX TECH AUTOMAÇÃO">MAX TECH AUTOMAÇÃO</option>
+        <option value="AUTOMATUS INFORMATICA LTDA">AUTOMATUS INFORMATICA LTDA</option>
+        <option value="LOGIN ASSESSORIA E SISTEMAS">LOGIN ASSESSORIA E SISTEMAS</option>
+        <option value="INFOCENTER AUTOMACAO">INFOCENTER AUTOMACAO</option>
+        <option value="MANUTEC MANUTENCAO AUTOMACAO COMERCIAL">MANUTEC MANUTENCAO AUTOMACAO COMERCIAL</option>
+        <option value="ATENDIMENTO TI MEDITERRANEO">ATENDIMENTO TI MEDITERRANEO</option>
+        <option value="GRUPOVICZ INFORMATICA LTDA - ME ">GRUPOVICZ INFORMATICA LTDA - ME </option>
+        <option value="POSTOS FLEX CONSULTORIA">POSTOS FLEX CONSULTORIA</option>
+        <option value="SANTO ANJO">SANTO ANJO</option>
+        <option value="NEGOCIOS & CIA">NEGOCIOS & CIA</option>
+        <option value="MEGA WEST INFORMATICA">MEGA WEST INFORMATICA</option>
+        <option value="SERVICE NET INFORMATICA">SERVICE NET INFORMATICA</option>
+        <option value="DATAMIX SISTEMAS">DATAMIX SISTEMAS</option>
+        <option value="INFOLON TECNOLOGIA">INFOLON TECNOLOGIA</option>
+        <option value="CASSIA BEATRIZ">CASSIA BEATRIZ</option>
+        <option value="MICROTEST INFORMATICA">MICROTEST INFORMATICA</option>
+        <option value="FLORIPA POSTOS">FLORIPA POSTOS</option>
+        <option value="REALEZAONLINE SERVIÇOS">REALEZAONLINE SERVIÇOS</option>
+        <option value="TECLA INFOR">TECLA INFOR</option>
+        <option value="UDISYS SISTEMAS">UDISYS SISTEMAS</option>
+        <option value="GX CONSULTORIA EM SISTEMA">GX CONSULTORIA EM SISTEMA</option>
+        <option value="WSMINFO">WSMINFO</option>
+        <option value="CORPORATIVA INFORMÁTICA">CORPORATIVA INFORMÁTICA</option>
+        <option value="INFORSUL SOLUÇÕES">INFORSUL SOLUÇÕES</option>
+        <option value="AUTOCOM">AUTOCOM</option>
+        <option value="1A PCI POWER">1A PCI POWER</option>
+        <option value="DBAMICRO">DBAMICRO</option>
+        <option value="GAS TECNOLOGIA (TESTE BANCO DO BRASIL)">GAS TECNOLOGIA (TESTE BANCO DO BRASIL)</option>
+        <option value="DATAINFO INFORMATICA E AUTOMAÇÃO">DATAINFO INFORMATICA E AUTOMAÇÃO</option>
+        <option value="AUTOMATEC">AUTOMATEC</option>
+        <option value="W.S INFORMÁTICA E AUTOMAÇÃO">W.S INFORMÁTICA E AUTOMAÇÃO</option>
+        <option value="SISTECH SISTEMA DE AUTOMAÇÃO">SISTECH SISTEMA DE AUTOMAÇÃO</option>
+        <option value="SUPORTE INFORMÁTICA">SUPORTE INFORMÁTICA</option>
+        <option value="COMTEC">COMTEC</option>
+        <option value="ALLFOCO INFORMATICA">ALLFOCO INFORMATICA</option>
+        <option value="OUROTECH INFORMATIZAÇÃO EMPRESARIAL">OUROTECH INFORMATIZAÇÃO EMPRESARIAL</option>
+        <option value="PETROSOFT AUTOMAÇÃO">PETROSOFT AUTOMAÇÃO</option>
+        <option value="PROMAQUINAS - AUTOMACAO COMERCIAL">PROMAQUINAS - AUTOMACAO COMERCIAL</option>
+        <option value="EMPORIO SOUZA & CIA">EMPORIO SOUZA & CIA</option>
+        <option value="JL AUTOMAÇÃO COMERCIAL">JL AUTOMAÇÃO COMERCIAL</option>
+        <option value="MHS">MHS</option>
+        <option value="JG AUTOMACOES">JG AUTOMACOES</option>
+        <option value="VALE SISTEM">VALE SISTEM</option>
+        <option value="MARCOS ANTONIO CRESTANI DE MATOS">MARCOS ANTONIO CRESTANI DE MATOS</option>
+        <option value="ATOMAX SERVICOS EM AUTOMAÇÃO COMERCIAL">ATOMAX SERVICOS EM AUTOMAÇÃO COMERCIAL</option>
+        <option value="PETROSOFT TECNOLOGIA">PETROSOFT TECNOLOGIA</option>
+        <option value="NOVA PROFICIO AUTOMAÇÃO">NOVA PROFICIO AUTOMAÇÃO</option>
+        <option value="INTERDADOS">INTERDADOS</option>
+        <option value="ATEC INFORMATICA">ATEC INFORMATICA</option>
+        <option value="SERGIO ROCHA PIMENTEL">SERGIO ROCHA PIMENTEL</option>
+        <option value="DATABITS TECNOLOGIAS COMERCIAIS">DATABITS TECNOLOGIAS COMERCIAIS</option>
+        <option value="RDDF CONSULTORIA">RDDF CONSULTORIA</option>
+        <option value="ARBTEK - GESTÃO DE NEGOCIOS">ARBTEK - GESTÃO DE NEGOCIOS</option>
+        <option value="INTERCERT">INTERCERT</option>
+        <option value="SOLUINFO TECNOLOGIA">SOLUINFO TECNOLOGIA</option>
+        <option value="ATENDIMENTO TI STANG">ATENDIMENTO TI STANG</option>
+        <option value="ENFOCK">ENFOCK</option>
+        <option value="FLEX SYSTEMS">FLEX SYSTEMS</option>
+        <option value="NEW AUTOMAÇÃO COMERCIAL">NEW AUTOMAÇÃO COMERCIAL</option>
+        <option value="NET SERVIÇOS">NET SERVIÇOS</option>
+        <option value="ALFA AUTOMACAO COMERCIAL">ALFA AUTOMACAO COMERCIAL</option>
+        <option value="INFOREDE">INFOREDE</option>
+        <option value="JB SOFTWARE (TESTE SUPORTE)">JB SOFTWARE (TESTE SUPORTE)</option>
+        <option value="CONNECT XPERT">CONNECT XPERT</option>
+        <option value="ASTECC AUTOMACAO COMERCIAL">ASTECC AUTOMACAO COMERCIAL</option>
+        <option value="I3 TECNOLOGIA">I3 TECNOLOGIA</option>
+        <option value="SOLUTIA TECNOLOGIA">SOLUTIA TECNOLOGIA</option>
+        <option value="DRS SEVEN ROOT">DRS SEVEN ROOT</option>
+        <option value="NUTE REPRESENTAÇÕES LTDA.">NUTE REPRESENTAÇÕES LTDA.</option>
+        <option value="SS AUTOMAÇÃO E SISTEMA LTDA">SS AUTOMAÇÃO E SISTEMA LTDA</option>
+        <option value="XPTEC EQUIPAMENTOS ELETRONICOS LTDA">XPTEC EQUIPAMENTOS ELETRONICOS LTDA</option>
+        <option value="MJ PUBLICIDADE">MJ PUBLICIDADE</option>
+        <option value="ZIUL INFORMATICA">ZIUL INFORMATICA</option>
+        <option value="HELP LINK SOLUÇÕES COMPUTACIONAIS">HELP LINK SOLUÇÕES COMPUTACIONAIS</option>
+        <option value="FOUREVER">FOUREVER</option>
+        <option value="SOS INFORMATICA E COMPONENTES ELETRONICOS">SOS INFORMATICA E COMPONENTES ELETRONICOS</option>
+        <option value="ATENDIMENTO TI BELLAS & BARCELLOS">ATENDIMENTO TI BELLAS & BARCELLOS</option>
+        <option value="PETROSOFT TECNOLOGIA - PY">PETROSOFT TECNOLOGIA - PY</option>
+        <option value="TESTES CADASTRO">TESTES CADASTRO</option>
+        <option value="MULTIEQUIPAMENTOS">MULTIEQUIPAMENTOS</option>
+        <option value="TESTE">TESTE</option>
+        <option value="BYC TECNOLOGIA">BYC TECNOLOGIA</option>
+        <option value="INFORINK INFORMATICA E SUPRIMENTOS">INFORINK INFORMATICA E SUPRIMENTOS</option>
+        <option value="AFG INFORMATICA">AFG INFORMATICA</option>
+        <option value="STATUS INFORMáTICA">STATUS INFORMáTICA</option>
+        <option value="MAGIKO">MAGIKO</option>
+        <option value="BI TELECOM & T.I">BI TELECOM & T.I</option>
+        <option value="SUPREMA IINFORMATICA">SUPREMA IINFORMATICA</option>
+        <option value="GIGATRON SOFTWARE">GIGATRON SOFTWARE</option>
+        <option value="SINTECH">SINTECH</option>
+        <option value="ZIBS COMPUTADORES">ZIBS COMPUTADORES</option>
+        <option value="INFOPALMAS - SOLUÇÕES EM TECNOLOGIA">INFOPALMAS - SOLUÇÕES EM TECNOLOGIA</option>
+        <option value="QUARFI">QUARFI</option>
+        <option value="SOFT-TI INFORMATICA">SOFT-TI INFORMATICA</option>
+        <option value="MILLENNIUM INFORMÁTICA">MILLENNIUM INFORMÁTICA</option>
+        <option value="MG AUTOMAÇÃO">MG AUTOMAÇÃO</option>
+        <option value="ALPHA EQUIPAMENTOS">ALPHA EQUIPAMENTOS</option>
+        <option value="ACTEC">ACTEC</option>
+        <option value="TECNOPRO ASSESSORIA E SISTEMAS">TECNOPRO ASSESSORIA E SISTEMAS</option>
+        <option value="SHOPPING DA INFORMATICA">SHOPPING DA INFORMATICA</option>
+        <option value="SIR-INFORMÁTICA">SIR-INFORMÁTICA</option>
+        <option value="TI2M">TI2M</option>
+        <option value="MULTIOPIÇÕES">MULTIOPIÇÕES</option>
+        <option value="ADAPTA INFORMÁTICA & TECNOLOGIA">ADAPTA INFORMÁTICA & TECNOLOGIA</option>
+        <option value="TECH INFO SOLUTION">TECH INFO SOLUTION</option>
+        <option value="MULT-TECH">MULT-TECH</option>
+        <option value="APRN SOLUÇÕES">APRN SOLUÇÕES</option>
+        <option value="RP">RP</option>
+        <option value="ATM INFORMATICA LTDA">ATM INFORMATICA LTDA</option>
+        <option value="MX SOLUÇÕES">MX SOLUÇÕES</option>
+        <option value="LOGON SOLUÇÕES">LOGON SOLUÇÕES</option>
+        <option value="SELECTA SOLUÇÕES E GESTÃO">SELECTA SOLUÇÕES E GESTÃO</option>
+        <option value="CANDYDATA AUTOMAÇÃO">CANDYDATA AUTOMAÇÃO</option>
+        <option value="XTEC SISTEMAS 396">XTEC SISTEMAS 396</option>
+        <option value="LAZ DIGITAL TECNOLOGIA CONSULTORIA E INOVAÇÃO">LAZ DIGITAL TECNOLOGIA CONSULTORIA E INOVAÇÃO</option>
+        <option value="CASA AUTOMAÇÃO">CASA AUTOMAÇÃO</option>
+        <option value="MD SOLUÇÕES EM TECNOLOGIA">MD SOLUÇÕES EM TECNOLOGIA</option>
+        <option value="FH AUTOMAçãO">FH AUTOMAçãO</option>
+        <option value="EXPERT SOLUÇÕES">EXPERT SOLUÇÕES</option>
+        <option value="XPONENCIAL TECH">XPONENCIAL TECH</option>
+        <option value="X-SOLLUCOES">X-SOLLUCOES</option>
+        <option value="PORTO TECNOLOGIA">PORTO TECNOLOGIA</option>
+        <option value="M&G TECNOLOGIA">M&G TECNOLOGIA</option>
+        <option value="WORK SISTEMAS MK">WORK SISTEMAS MK</option>
+        <option value="MX SUPORTE">MX SUPORTE</option>
+        <option value="POSTOS CASA GRANDE">POSTOS CASA GRANDE</option>
+        <option value="CLICK SISTEMAS E CONSULTORIA">CLICK SISTEMAS E CONSULTORIA</option>
+        <option value="MEGADATA AUTOMAÇÃO COMERCIAL">MEGADATA AUTOMAÇÃO COMERCIAL</option>
+        <option value="MEGA SISTEMAS">MEGA SISTEMAS</option>
+        <option value="DIAMANTES INFORMÁTICA">DIAMANTES INFORMÁTICA</option>
+        <option value="TECH DEV - TECNOLOGIA E AUTOMAÇÃO COMERCIAL">TECH DEV - TECNOLOGIA E AUTOMAÇÃO COMERCIAL</option>
+        <option value="NORTE COMPANY INFORMATICA">NORTE COMPANY INFORMATICA</option>
+        <option value="DR AUTOMAÇÃO">DR AUTOMAÇÃO</option>
+        <option value="PREMIUM ASSISTENCIA TECNICA">PREMIUM ASSISTENCIA TECNICA</option>
+        <option value="XPERT TECNOLOGIA SÃO PAULO">XPERT TECNOLOGIA SÃO PAULO</option>
+        <option value="MICROTECH">MICROTECH</option>
+        <option value="EZTECH">EZTECH</option>
+        <option value="L.G.A ENGENHARIA DE SOFTWARE">L.G.A ENGENHARIA DE SOFTWARE</option>
+        <option value="GX MANUTENCAO E EQUIPAMENTOS">GX MANUTENCAO E EQUIPAMENTOS</option>
+        <option value="WSG SISTEMAS">WSG SISTEMAS</option>
+    
+    </select>
+    <div>
+        
+       <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="left: auto;"></th>
+                <th style="position: relative; right: 987px;"></th>
+                <th style="position: relative; right: 675px;"></th>
+                <th style="position: relative; right: 520px;"></th>
+                <th style="position: relative; right: 325px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="id" ></tr>
+        </tbody>
+       </table>
+    </div>
+
+    <footer>
+        <p><a href="index.html">Voltar para a tela de login</a></p>
+    </footer>
+    <script>
+
+        var output = document.getElementById('output');
+        var token = window.localStorage.getItem('token');
+        var arrayuf = [];
+        $.ajax({
+                 type: 'GET',
+                 url: 'http://conxpert-api.lab.xpert.com.br/distribuidores',
+                 headers: {
+                    
+                     'Authorization':'Bearer ' + token
+                 },
+             }).done(function(data){
+                 // console.log(data)
+                 arrayuf = data
+ 
+                 
+             })
+        function est() {
+            const div = document.getElementById("id");
+            div.innerText = "";
+            var testeArray = [];
+            var representante = document.getElementById("select").value
+                 for(var i = 0; i < arrayuf.length; i++){
+                     if(arrayuf[i].REPRESENTANTE === representante){
+                    
+                        testeArray.push(arrayuf[i]);
+                    
+                    }
+                     
+                 }
+    
+                 for(var i = 0; i < testeArray.length; i++){
+                       $('#id').append(`
+                         <tr>
+                             <td style="padding-right: 40px;">${testeArray[i].CODIGO}</td>
+                             <td style="padding-right: 40px;">${testeArray[i].REPRESENTANTE}</td>
+                             <td style="padding-right: 40px;">${testeArray[i].CNPJCPF}</td>
+                             <td style="padding-right: 40px;">${testeArray[i].CIDADE}</td>
+                             <td style="padding-right: 40px;">${testeArray[i].ESTADO}</td>
+                         </tr>
+                     
+                     `);
+                     
+                 }
+
+
+               
+        }
+
+    </script>
+</body>
+</html>

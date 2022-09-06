@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <form autocomplete="on" action="form" name="login" id="login">
+        <div class="card">
+            <div class="card-top">
+                <h2 class="title">Painel de Controle</h2>
+                <p>Gerenciar seu Negócio</p>
+            </div>
+
+            <div class="card-group">
+                <label>Email</label>
+                <input type="text" name="email" id="email" placeholder="Digite seu E-mail">
+            </div>
+
+            <div class="card-group">
+                <label>Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua Senha">
+
+                <div class="card-group btn">
+                   <button type="button" onclick="logar()">Acessar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        function logar(){
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+
+            if(email == "felipedanguibordin@gmail.com" && senha == "0801") {
+                location.href = "./menu/menu.html";
+            }else{
+                window.alert('Login incorreto');
+            }
+        }
+    </script>
+</body>
+</html>
