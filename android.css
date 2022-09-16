@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'Android';
-    src: url('../fontes/IDroid\ Italic.otf') format('opentype');
+    src: url('../fontes/iDroid.otf') format('opentype');
     font-weight: normal;
 }
 
@@ -21,16 +21,47 @@
     --fonte-android: 'Android', sans-serif;
 }
 
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     background-color: var(--cor0);
     font-family: var(--fonte-padrao);
 }
 
+header {
+    background-color: var(--cor4);
+}
+
 header > h1 {
-    color: var(--cor3);
+    color: white;
     font-family: var(--fonte-destaque);
 }
 
-main > h1 {
+header > p {
+    color: white;
+}
+
+nav {
+    background-color: var(--cor5);
+}
+
+main {
+    background-color: white;
+}
+
+main h1 {
     color: var(--cor5);
+    font-family: var(--fonte-android);
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
 }
