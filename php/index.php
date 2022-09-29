@@ -64,6 +64,7 @@ echo $cidade; // A resposta vai ser Ilhéus
 
 
 
+
 //TIPOS DE DADOS
 /****** Escalares ******/
 
@@ -109,5 +110,42 @@ endif;
 
 
 /****** Compostos ******/
-$carros = array("Gol", "Uno", "Camaro"); // É uma variável que pode guardar mais de um valor 
+
+// array
+$carros = array("Gol", "Uno", "Camaro", 12, 20.6, true); // É uma variável que pode guardar mais de um valor, além de aceitar todos os dados escalares 
 var_dump($carros);
+if(is_array)($carros):
+    echo "É um array"; // A resposta certa é essa, porém se ouvesse apenas um valor a resposta seria não é um array ✓
+else:
+    echo "Não é um array";
+endif;
+
+
+// object
+class Cliente {
+    public $nome;
+    public function atribuirNome($nome) {
+        $this -> $nome = $nome; // Se tu naum enendeu tamo na mesma 
+    }
+}
+
+$cliente = new Cliente();
+$cliente -> atribuirNome("Antonio"); // Acho que entendi (não entendi não)
+var_dump($cliente);
+if(is_object($cliente)):
+    echo "É um object"; // Sei que a resposta é essa mas não sei o motivo ✓
+else:
+    echo "Não é um object";
+endif;
+
+
+/****** Especiais ******/
+// NULL
+$cidade = NULL; // É usado quando a variável não tem um valor 
+var_dump($cidade);
+
+
+
+
+
+//ASPAS SIMPLES, ASPAS DUPLAS E CONCATENAÇÃO
