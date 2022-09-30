@@ -15,7 +15,7 @@ echo "Meu nome é $nome, minha idade é $idade e minha altura é $altura <br>";
 echo "<hr>";
 
 
-// Se eu quiser mostra a Hilux o c(em echo na linha 22) deverá ser minúsculo :)
+// Se eu quiser mostra a Hilux o c(em Carro na linha 22) deverá ser minúsculo :)
 $carro = "Hilux";
 $Carro = "Fusca";
 
@@ -38,8 +38,8 @@ echo $meuNome;
 // $meuNome
 
 // Nomes inválidos (para variáveis)
-//$2121nome 
-//$carro*&!@#
+// $2121nome 
+// $carro*&!@#
 // $meu carro
 
 
@@ -215,6 +215,7 @@ echo NOME;
 
 
 //ARRAYS
+/****** Arrays Numéricos ******/
     // a maneira que o array organiza é por números, sendo feito desse jeito ↓
              //   0       1       2
 $carros = array("BMW", "Hilux", "Audi"); // Os arrays são utilizados qunado você tem um grande número de variáveis, e para não perder muito tempo escrevendo tantas ele junta tudo em uma só passando valores de 0 a infinito
@@ -232,3 +233,137 @@ foreach($carros as $valor) { //Foreach quer dizer para cada, então todos os ele
     echo $valor; // Nesse caso ele vai percorrer todo o elemento e retornar todos os carros (BMW, Hilux, Audi, Porche)
 
 }
+
+
+/****** Arrays Associativos ******/
+$pessoa = array("nome" => "Felipe", "idade" => 15, "altura" => 1.70); // Ao invez de inteiros são utilizadas strings em arrays associativos 
+echo $pessoa["nome"];
+
+foreach($pessoa as $indice => $valor) {
+    echo $indice. ":" .$valor;
+}
+
+
+/****** Arrays Multidimensionais ******/
+$times = array("Cariocas" => array("Vasco", "Flamengo", "Botafogo"), 
+               "Paulistas" => array("São Paulo", "Corinthians", "Santos"), 
+               "Baianos" => array("Bahia", "Vitória", "Itabuna")); // É um array dentro de um array, utilizado principalmente para separar informações distintas 
+echo $times["Cariocas"][1]; // A resposta do site vai ser Flamengo (os parametros que estão entre [] servem como um filtro para achar exatamente o valor desejado dentro de um array)
+
+
+
+
+
+//FUNÇÕES DE ARRAY
+/*
+* is_array($array) = verificar se uma determinada variável é um array
+* in_array($valor, $array) = verificar se um determinado valor existe em alguma posição do array
+* array_keys($array) = retorna um novo array com as chaves do array passado como parâmetro
+* array_values($array) = retorna um novo array com os valores do array passado como parâmetro 
+* array_marge($array1, $array2) = agrega o conteúdo dos dois arrays 
+* array_pop($array) = exclui a última posição do array
+* array_shift($array) = exclui a primeira posição do array
+* array_unshift($arr, "valor") = adiciona um ou mais elementos no início do array
+* array_push($array, "valor", "valor") = adiciona um ou mais elelmentos no final do array
+* array_combine($keys, $values) = mescla os dois arrays passados 
+* array_sum() = calcula a soma dos elementos do array
+* explode("/", "20/01/2001") = transforma string em array
+* implode("-", $arr) = transforma array em string
+*/
+
+
+
+
+
+//CONDICIONAIS 
+/*
+* if (Tradução: se)
+* else (Tradução: senão)
+* elseif (Tradução: senão se)
+*/
+
+$numero = 7;
+
+if ($numero == 10):
+    echo "É igual a 10";
+
+elseif($numero <= 9):
+    echo "É menor ou igual a 9";
+
+else: 
+    echo "É diferente de 10";
+
+endif;
+
+
+// Outro exemplo como o de cima ↑
+$media = 8;
+
+echo ($media >= 7) ? "Aprovado!" : "Reprovado!";
+
+
+// Switch e Case
+$cor = "roxo";
+
+switch ($cor):
+    case "vermelho":
+        echo "Sua cor preferida é o vermelho.";
+        break;
+    case "roxo":
+        echo "Sua cor preferida é o roxo.";
+        break;
+    case "preto":
+        echo "Sua cor preferida é o preto.";
+    default:
+        echo "Sua cor preferida não é vermelho, roxo ou preto."
+endswitch;
+
+
+
+
+
+//OPERADORES ARITMETICOS
+
+// São usados com valores numéricos para executar operações aritiméticas comuns, como adição, subtração, multiplicação etc.
+
+/*
+* Adição +
+* Subtração -
+* Multiplicação * 
+* Divisão /
+* Módulo %
+* Exponenciação ** 
+*/
+
+echo 10 + 10; // Resposta = 20 ✓
+echo 25 - 5; // Resposta = 20 ✓
+echo 5 * 4; // Resposta = 20 ✓
+echo 40 / 2; // Resposta = 20 ✓
+echo 120 % 10; // Resposta = 20 ✓
+echo 3 ** 5; // Resposta = 243 ✓
+
+
+// Operadores com variável
+$a = 10;
+$b = 20;
+$c = 30;
+$d = 5;
+$e = 16;
+
+$adicao = $a + $b;
+echo $adicao; // Resposta = 30 ✓
+
+$subtracao = $c - $a;
+echo $subtracao; // Resposta = 20 ✓
+
+$multiplicacao = $d * $a;
+echo $multiplicacao;  // Resposta = 50 ✓
+
+$divisao = $c / $a;
+echo $divisao;  // Resposta = 3 ✓
+
+$modulo = $e % $d;
+echo $modulo;  // Resposta = 1 ✓
+
+$exponenciacao = $a ** $d
+echo $exponenciacao;  // Resposta = 100000 ✓
