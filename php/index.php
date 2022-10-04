@@ -481,3 +481,63 @@ endforeach;
 $nome = "ISABELA";
 $novoNome = strtolower; // Essa função vai transformar todas as letras em minisculas
 echo $novoNome;
+
+
+
+
+
+
+//FUNÇÕES PARA NÚMEROS 
+/*
+* number_format
+* round
+* ceil
+* floor
+* rand
+*/
+
+
+// number_format
+$db = 1234.56
+$preco = number_format($db, 2, ",", ".")
+echo "O valor do produto é R$ $preco";
+
+
+// round
+echo round(3.6); // Vai arredondar pra 4
+
+
+// ceil
+echo ceil(7.2); // Vai arredondar mas somente pra cima (Resposta = 8)
+
+
+// floor
+echo floor(2.99); // Vai arredondar mais sempre para baixo (Resposta = 2)
+
+
+// rand
+echo rand(1, 20); // É ideal para fazer sorteios (primeiro passa um valor inicial e depois um final)
+
+
+
+
+
+
+//CRIANDO FUNÇÕES 
+
+function exibirNome($nome) {
+    echo "Meu nome é $nome";
+}
+
+exibirNome("Felipe Bordin");
+
+function calcularMedia($nome, $n1, $n2, $n3, $n4) {
+    $media = ($n1 + $n2 + $n3 + $n4) / 4;
+    if($media >= 7):
+        echo "$nome foi aprovado com a média $media.";
+    else:
+        echo "$nome foi reprovado";
+    endif;
+}
+
+calcularMedia("Roberto", 5, 7, 9, 10);
