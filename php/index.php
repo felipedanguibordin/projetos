@@ -367,3 +367,117 @@ echo $modulo;  // Resposta = 1 ✓
 
 $exponenciacao = $a ** $d
 echo $exponenciacao;  // Resposta = 100000 ✓
+
+
+
+
+
+
+//OPERADORES DE INCREMENTO E DECREMENTO 
+
+
+// Servem para somar ou subtrair em (+1 ou -1) qualquer valr do tipo numérico ou string
+
+$valor = 20;
+
+// Pré-incremento 
+echo ++$valor; // Resposta = 21 ✓
+
+// Pós-incremento
+echo $valor++;  // Resposta = 20 e na próxima chamada 21 ✓
+
+
+// Pré-decremento
+echo --$valor;  // Resposta = 19 ✓
+
+// Pós-decremento
+echo $valor--;  // Resposta = 20 e na próxima 19 ✓
+
+
+
+
+
+
+//OPERADORES LÓGICOS
+
+
+// Nos permitem fazer comparações entre expressões
+// (&& - and querem dizer 'e')
+// (|| - or querem dizer 'ou')
+// (! quer dizer negação ou diferente)
+
+$idade = 25;
+$nome = "Felipe";
+
+if ((idade == 25) and ($nome == "Felipe")):
+    echo "É verdadeiro";
+else:
+    echo "É falso";
+endif;
+
+
+
+
+
+//WHILE E DO WHILE
+
+
+$contador = 1;
+
+// While
+
+while ($contador <= 10): // While quer dizer enquanto 
+    echo "Contador é $contador";
+    $contador++; 
+endwhile;
+
+// Do While
+
+do { // O Do While faz a mesma coisa que o While mas ele primeiro faz e depois verifica 
+
+    echo "Contador é $contador";
+    $contador++;
+} while ($contador <= 10);
+
+
+
+
+
+
+//FOR E FOREACH
+
+
+// for
+
+for ($contador = 0; $contador <= 10; $contador++): // For quer dizer 'para'
+    echo "8 x $contador = ".($contador * 8); // Essa é uma meneira de calcular a tabuada de algum algarismo 
+endfor;
+
+
+// foreanch
+
+$cores = array("Verde", "Vermelho", "Azul");
+
+foreach($cores as $valor): // Foreach quer dizer 'para cada'
+    echo $valor
+endforeach;
+
+
+
+
+
+//FUNÇÕES PARA STRINGS
+/*
+* strtoupper
+* strtolower
+* substr
+* str_pad
+* str_repeat
+* strlen
+* str_replace
+* strpos
+*/
+
+$nome = "ISABELA";
+$novoNome = strtolower; // Essa função vai transformar todas as letras em minisculas
+echo $novoNome;
