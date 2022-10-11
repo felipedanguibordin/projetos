@@ -12,3 +12,12 @@ if ( isset($_GET)['task_name'] ) {
 
 var_dump($_SESSION['tasks']);   
 
+if ( isset($_SESSION['tasks']) ) {
+    echo "<ul>";
+
+    foreach ( $_SESSION['tasks'] as $key => $task) {
+        echo "<li>$task</li>"
+    }
+
+    echo "</ul>";
+}
