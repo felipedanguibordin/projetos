@@ -541,3 +541,29 @@ function calcularMedia($nome, $n1, $n2, $n3, $n4) {
 }
 
 calcularMedia("Roberto", 5, 7, 9, 10);
+
+
+
+
+
+
+//SUPERGLOBAIS
+/*
+    $GLOBALS
+    $_SERVER
+    $_POST
+    $_GET
+    $_FILES
+    $_ENV
+    $_COOKIE
+    $_SESSION
+*/
+
+$x = 10;
+$y = 15;
+
+function soma() {
+   echo $GLOBALS['x'] + $GLOBALS['y'];
+}
+
+soma();
