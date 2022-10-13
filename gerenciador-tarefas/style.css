@@ -108,6 +108,37 @@ body {
     background: #80cbc4;
 }
 
+.btn-clear {
+    background: #ef5350;
+    height: 32px;
+    border-radius: 4px;
+    border: none;
+    padding:  0 12px;
+    color: #fff;
+
+    transition: background 0.3s;
+}
+
+.limpa-tarefa {
+    background: #ef5350;
+    height: 32px;
+    border-radius: 4px;
+    border: none;
+    padding: 0 12px;
+    color: #fff;
+    margin-left: 290px;
+
+    transition: background 0.3s;
+}
+
+.limpa-tarefa:hover {
+    background: #ef9a9a;
+}
+
+.btn-clear:hover {
+    background: #ef9a9a;
+}
+
 .footer {
     background: #f0f0f5;
     border-radius: 4px;
