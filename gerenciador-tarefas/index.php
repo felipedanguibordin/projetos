@@ -6,7 +6,6 @@ if ( !isset($_SESSION['tasks']) ) {
     $_SESSION['tasks'] = array();
 }
 
-var_dump($_SESSION['tasks']);
 
 ?>
 
@@ -58,8 +57,8 @@ var_dump($_SESSION['tasks']);
                 echo "<ul>";
                     foreach ( $_SESSION['tasks'] as $key => $task) {
                         echo "<li>
-                            <span>" . $task['task_name'] . "</span>
-                            <button type='button' class='limpa-tarefa' onclick='deletar$key()'>Remover</button>
+                            <a href='details.php?key=$key'>" . $task['task_name'] . "</a>
+                            <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
                             <script>
                                 function deletar$key(){
                                     if ( confirm('Confirmar') ) {

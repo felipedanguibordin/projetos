@@ -10,6 +10,24 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: auto;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
 .container {
     background: #fff;
     max-width: 450px;
@@ -119,22 +137,6 @@ body {
     transition: background 0.3s;
 }
 
-.limpa-tarefa {
-    background: #ef5350;
-    height: 32px;
-    border-radius: 4px;
-    border: none;
-    padding: 0 12px;
-    color: #fff;
-    margin-left: 280px;
-
-    transition: background 0.3s;
-}
-
-.limpa-tarefa:hover {
-    background: #ef9a9a;
-}
-
 .btn-clear:hover {
     background: #ef9a9a;
 }
@@ -148,4 +150,55 @@ body {
 .footer p {
     color: #999;
     font-size: 12px;
+}
+
+.details-container {
+    background: #fff;
+    max-width: 700px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.details {
+    width: 300px;
+    border: 1px solid #f0f0f5;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-right: 8px;
+    padding: 16px;
+}
+
+.details dt dl {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #666;
+}
+
+.details dl dd {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    color: #999;
+}
+
+.image{
+    width: 400px;
+    border: 1px solid #f0f0f5;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-left: 8px;
+    padding: 16px;    
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
 }
