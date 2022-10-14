@@ -6,15 +6,7 @@ if ( !isset($_SESSION['tasks']) ) {
     $_SESSION['tasks'] = array();
 }
 
-if ( isset($_GET['task_name']) ) {
-    array_push($_SESSION['tasks'], $_GET['task_name']);
-    unset($_GET['task_name']);
-}
-
-if ( isset($_GET['clear']) ) {
-    unset($_SESSION['tasks']);
-};
-
+var_dump($_SESSION['tasks']);
 
 ?>
 
@@ -37,11 +29,24 @@ if ( isset($_GET['clear']) ) {
             <h1>Gerenciador e Tarefas</h1>
         </div>
         <div class="form">
-            <form action="" method="get">
+            <form action="task.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="insert" value="insert">
                 <label for="task_name">Tarefa: </label>
                 <input type="text" name="task_name" placeholder="Nome da tarefa" autocomplete="off">
+                <label for="task_description" autocomplete="off">Descrição:</label>
+                <input type="text" name="task_description" placeholder="Descrição da Tarefa" autocomplete="off">
+                <label for="task_date">Data</label>
+                <input type="date" name="task_date">
+                <label for="task_image">Imagem:</label>
+                <input type="file" name="task_image">
                 <button type="submit">Cadastrar</button>
             </form>
+            <?php
+                if ( isset($_SESSION['message']) ) {
+                    echo "<p style='color: #ef5350';>" . $_SESSION['message'] . "</p>";
+                    unset( $_SESSION['message'] );
+                }
+            ?>
         </div>
         <div class="separator">
 
@@ -53,12 +58,12 @@ if ( isset($_GET['clear']) ) {
                 echo "<ul>";
                     foreach ( $_SESSION['tasks'] as $key => $task) {
                         echo "<li>
-                            <span>$task</span>
+                            <span>" . $task['task_name'] . "</span>
                             <button type='button' class='limpa-tarefa' onclick='deletar$key()'>Remover</button>
                             <script>
                                 function deletar$key(){
                                     if ( confirm('Confirmar') ) {
-                                        window.location = 'http://localhost:8100/?key=$key';
+                                        window.location = 'http://localhost:8100/task.php?key=$key';
                                     }
                                     return false;
                                 }
@@ -71,10 +76,6 @@ if ( isset($_GET['clear']) ) {
 
         ?>
 
-            <form action="" method="get">
-                <input type="hidden" name="clear" value="clear">
-                <button type="submit" class="btn-clear">Limpar Tarefas</button>
-            </form>
         </div>
         <div class="footer">
             <p>Desenvolvido por @felipe_dangui_</p>
