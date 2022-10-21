@@ -24,7 +24,7 @@ let etapas = [
             nome: 'CIRO FERREIRA GOMES',
             partido: 'PDT',
             foto: [
-                {url:'images(1).jpg', legenda: 'Calvo'}
+                {url:'Ciro-Gomes.jpg', legenda: 'Calvo'}
             ]
         },
         {
