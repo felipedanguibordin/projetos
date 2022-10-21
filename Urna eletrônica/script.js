@@ -7,11 +7,13 @@ let numeros = document.querySelector('.d-1-3');
 
 let etapaAtual = 0;
 let numero = '';
+let votoBranco = false;
 
 function comecarEtapa() {
     let etapa = etapas[etapaAtual];
 
     let numeroHtml = '';
+    numero = '';
 
     for(let i=0; i<etapa.numeros; i++) {
         if(i === 0) {
@@ -51,8 +53,12 @@ function atualizarInterface() {
         }
 
         lateral.innerHTML = fotosHtml;
+    } else {
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        descricao.innerHTML = '<div class="aviso-grande pisca">VOTO NULO</div>'
     }
-    console.log(candidato);
+
 }
 
 function clicou(n) {
@@ -71,15 +77,51 @@ function clicou(n) {
 }
 
 function branco() {
-    alert("Clicou em BRANCO!");
+    if(numero === ''){
+        votoBranco = true;
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        numeros.innerHTML = '';
+        descricao.innerHTML = '<div class="aviso-grande pisca">VOTO EM BRANCO</div>';
+    } else {
+        alert("Para votar em BRANCO, não pode ser digitado nenhum número");
+    }
 }
 
 function corrige() {
-    alert("Clicou em CORRIGE!");
+    comecarEtapa();
 }
 
 function confirma() {
-    alert("Clicou em CONFIRMA!");
+    let etapa = etapas[etapaAtual];
+    let votoConfirmado = false;
+
+    if(votoBranco === true) {
+        votoConfirmado = true;
+        console.log("Confirmando como BRANCO!")
+    } else if(numero.length === etapa.numeros) {
+        votoConfirmado = true;
+        console.log("Confirmando como " + numero + "!");
+    }
+
+    if(votoConfirmado) {
+        etapaAtual ++;
+        if(etapas[etapaAtual] !== undefined) {
+            comecarEtapa();
+        } else {
+            document.querySelector('.tela'). innerHTML = '<div class="aviso-gigante pisca">FIM</div>';
+        }
+    }
 }
+
+
+
+document.addEventListener('keydown', (event) => {
+    var name = event.key;
+
+    clicou(name)
+    // Alert the key name and key code on keydown
+    // alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+  }, false);
 
 comecarEtapa();

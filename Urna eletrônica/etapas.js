@@ -46,7 +46,7 @@ let etapas = [
         {
             numero: '10',
             nome: 'NEYMAR JR',
-            Partido: 'BR',
+            partido: 'BR',
             foto: [
                 {url: 'Ney.jpg', legenda: 'Neymito'}
             ]

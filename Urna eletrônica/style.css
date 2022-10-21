@@ -142,14 +142,27 @@ body {
 }
 .d-1-image img {
     width: 100%;
-    
+
 }
-
-
 
 .d-2 {
     height: 50px;
     font-size: 14px;
     border-top: 2px solid #000;
     padding-left: 10px;
+}
+
+.aviso-grande {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.aviso-gigante {
+    font-size: 70px;
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
