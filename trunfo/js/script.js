@@ -7,8 +7,8 @@ var cartas= [carta1 = {
   nome: "Soldado Invernal",
   imagem:'https://i.postimg.cc/VsCGHcZL/soldado-Invernal.png',
   atributos:{
-    ataque: 8,
-    defesa: 7,
+    ataque: 7,
+    defesa: 6,
     forca: 8
   }
 },            
@@ -25,7 +25,7 @@ carta3 = {
   nome: "Ultron",
   imagem:'https://i.postimg.cc/xd8gGrbQ/ultron.png',
   atributos:{
-    ataque: 8,
+    ataque: 7,
     defesa: 6,
     forca: 7
   }
@@ -53,7 +53,7 @@ carta6 = {
   imagem:'https://i.postimg.cc/V637L7v8/nebulosa2.png',
   atributos:{
     ataque: 7,
-    defesa: 8,
+    defesa: 7,
     forca: 7
   }
 },
@@ -71,7 +71,7 @@ carta8 = {
   imagem:'https://i.postimg.cc/XqCzwRmq/falcao.png',
   atributos:{
     ataque: 7,
-    defesa: 7,
+    defesa: 6,
     forca: 6
   }
 },
@@ -79,8 +79,8 @@ carta9 = {
   nome: "Gavião Arqueiro",
     imagem:'https://i.postimg.cc/Y9jVSGx1/gaviao-Arqueiro.png',
   atributos:{
-    ataque: 6,
-    defesa: 7,
+    ataque: 7,
+    defesa: 5,
     forca: 7
   }
 }, 
@@ -107,7 +107,7 @@ carta12 = {
   imagem:'https://i.postimg.cc/bvVC4Yjd/misterio.png',
   atributos:{
     ataque: 7,
-    defesa: 8,
+    defesa: 7,
     forca: 6
   }
 },
@@ -115,7 +115,7 @@ carta13 = {
   nome: "Hulk",
   imagem:'https://i.postimg.cc/7LZtBGdp/hulk.png',
   atributos:{
-    ataque: 8,
+    ataque: 9,
     defesa: 7,
     forca: 10
   }
@@ -125,7 +125,7 @@ carta14 = {
   imagem:'https://i.postimg.cc/5tsT1q84/capita-Marvel.png',
   atributos:{
     ataque: 10,
-    defesa: 7,
+    defesa: 8,
     forca: 8
   }
 },
@@ -142,7 +142,7 @@ carta16 = {
   nome: "Vespa",
     imagem:'https://i.postimg.cc/bJ2TMQTF/vespa.png',
   atributos:{
-    ataque: 8,
+    ataque: 6,
     defesa: 8,
     forca: 6
   }
@@ -178,8 +178,8 @@ carta20 = {
   nome: "Deadpool",
   imagem:'https://i.postimg.cc/tgqwLmZv/deadpool.png',
   atributos:{
-    ataque: 6,
-    defesa: 4,
+    ataque: 7,
+    defesa: 9,
     forca: 8
   }
 },
@@ -223,9 +223,9 @@ carta25 = {
   nome: "Viúva Negra",
   imagem:'https://i.postimg.cc/8kM4mms7/viuva-Negra.png',
   atributos:{
-    ataque: 9,
+    ataque: 8,
     defesa: 8,
-    forca: 7
+    forca: 6
   }
 },
 carta26 = {
@@ -242,7 +242,7 @@ carta27 = {
   imagem:'https://i.postimg.cc/zvHjnW25/homem-aranha.jpg',
   atributos:{
     ataque: 8,
-    defesa:8,
+    defesa: 8,
     forca: 6
   }
 },
@@ -250,7 +250,7 @@ carta28 = {
   nome: "Capitão América",
   imagem:'https://i.postimg.cc/CM2rzMrS/cap-america.jpg',
   atributos:{
-    ataque: 9,
+    ataque: 8,
     defesa: 7,
     forca: 9
   }
@@ -314,7 +314,7 @@ carta35 = {
   imagem:'https://i.postimg.cc/DwqJdLWc/carnificina.png',
   atributos:{
     ataque: 8,
-    defesa: 3,
+    defesa: 8,
     forca: 7
   }
 },
@@ -412,7 +412,7 @@ carta46 = {
   nome: "Elektra",
   imagem:'https://i.postimg.cc/nLFz45fH/elektra.png',
   atributos:{
-    ataque: 8,
+    ataque: 7,
     defesa: 7,
     forca: 7
   }
@@ -421,9 +421,9 @@ carta47 = {
   nome: "Fanático",
   imagem:'https://i.postimg.cc/CKcKmNwb/fanatico.png',
   atributos:{
-    ataque: 4,
+    ataque: 7,
     defesa: 4,
-    forca: 6
+    forca: 8
   }
 },
 carta48 = {
@@ -457,9 +457,9 @@ carta51 = {
   nome: "Galactus",
   imagem:'https://i.postimg.cc/fkQWJqvQ/galactus.png',
   atributos:{
-    ataque: 6,
-    defesa: 7,
-    forca: 8
+    ataque: 10,
+    defesa: 9,
+    forca: 10
   }
 },
 carta52 = {
@@ -467,7 +467,7 @@ carta52 = {
   imagem:'https://i.postimg.cc/05bnvkHq/gambit.png',
   atributos:{
     ataque: 8,
-    defesa: 9,
+    defesa: 8,
     forca: 4
   }
 },
@@ -476,7 +476,7 @@ carta53 = {
   imagem:'https://i.postimg.cc/2jMw8sPL/goot.png',
   atributos:{
     ataque: 6,
-    defesa: 4,
+    defesa: 9,
     forca: 6
   }
 },
@@ -484,7 +484,7 @@ carta54 = {
   nome: "Hela Odinnsdottir",
   imagem:'https://i.postimg.cc/HLY0hd7R/hela-odinnsdottir.png',
   atributos:{
-    ataque: 5,
+    ataque: 7,
     defesa: 3,
     forca: 5
   }
@@ -493,7 +493,7 @@ carta55 = {
   nome: "Homem de Gelo",
   imagem:'https://i.postimg.cc/HsMtJSgZ/homem-de-gelo.png',
   atributos:{
-    ataque: 7,
+    ataque: 6,
     defesa: 5,
     forca: 7
   }
@@ -565,7 +565,7 @@ carta63 = {
   nome: "Magneto",
   imagem:'https://i.postimg.cc/7PF3yg2g/magneto.png',
   atributos:{
-    ataque: 9,
+    ataque: 8,
     defesa: 7,
     forca: 8
   }
@@ -619,7 +619,7 @@ carta69 = {
   nome: "Mercúrio",
   imagem:'https://i.postimg.cc/50HCh097/mercurio.png',
   atributos:{
-    ataque: 6,
+    ataque: 7,
     defesa: 8,
     forca: 6
   }
@@ -629,7 +629,7 @@ carta70 = {
   imagem:'https://i.postimg.cc/QtRTh3HX/mistica.png',
   atributos:{
     ataque: 7,
-    defesa: 9,
+    defesa: 8,
     forca: 4
   }
 },
@@ -664,8 +664,8 @@ carta74 = {
   nome: "Princesa do Poder",
   imagem:'https://i.postimg.cc/gkbZ7mCs/princesa-do-poder.png',
   atributos:{
-    ataque: 3,
-    defesa: 2,
+    ataque: 1,
+    defesa: 1,
     forca: 6
   }
 },
@@ -783,7 +783,7 @@ carta86 = {
   atributos:{
     ataque: 5,
     defesa: 6,
-    forca: 9
+    forca: 8
   }
 },
 carta87 = {

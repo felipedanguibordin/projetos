@@ -25,7 +25,7 @@ echo $Carro;
 $meunome = "Felipe";
 $meuNome = "Isabela"
 
-echo $meuNome;
+echo $meuNome
 
 
 
