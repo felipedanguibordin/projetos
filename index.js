@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function Home() {
-    return <div>Home</div>
+  return <div>Home</div>;
 }
 
-export default Home
+export default Home;

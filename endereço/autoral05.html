@@ -1,132 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        a {
-            text-decoration: none;
-        }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-        table {
-            width: 500px;
-            border-collapse: collapse;
-            position: relative;
-            margin-top: 10px;
-        }
+      a {
+        text-decoration: none;
+      }
 
-        td, th {
-            border: 1px solid black;
-            padding: 10px;
-        }
+      table {
+        width: 500px;
+        border-collapse: collapse;
+        position: relative;
+        margin-top: 10px;
+      }
 
-        thead {
-            color: white;
-        }
+      td,
+      th {
+        border: 1px solid black;
+        padding: 10px;
+      }
 
-        thead th {
-            position: sticky;
-            top: -1px;
-            background-color: rgb(18, 166, 235);
-        }
+      thead {
+        color: white;
+      }
 
-        table td {
+      thead th {
+        position: sticky;
+        top: -1px;
+        background-color: rgb(18, 166, 235);
+      }
+
+      table td {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        }
-
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <input type="number" name="cep1" id="cep1" />
 
-    <input type="number" name="cep1" id="cep1">
-
-    <button type="button" >Busca</button>
+    <button type="button">Busca</button>
 
     <table>
-        <thead>
-            <tr>
-                <th>Elementos: </th>
-                <th>Informações: </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CEP</td>
-                <td>
-                    <span id="cep2"></span>
-                </td>
-            </tr>
+      <thead>
+        <tr>
+          <th>Elementos:</th>
+          <th>Informações:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CEP</td>
+          <td>
+            <span id="cep2"></span>
+          </td>
+        </tr>
 
-            <tr>
-                <td>Endereço</td>
-                <td>
-                    <span id="endereco"></span>
-                </td>
-            </tr>
+        <tr>
+          <td>Endereço</td>
+          <td>
+            <span id="endereco"></span>
+          </td>
+        </tr>
 
-            <tr>
-                <td>Bairro</td>
-                <td>
-                    <span id="bairro"></span>
-                </td>
-            </tr>
+        <tr>
+          <td>Bairro</td>
+          <td>
+            <span id="bairro"></span>
+          </td>
+        </tr>
 
-            <tr>
-                <td>Discagem Direta a Distancia</td>
-                <td>
-                    <span id="discagem"></span>
-                </td>
-            </tr>
+        <tr>
+          <td>Discagem Direta a Distancia</td>
+          <td>
+            <span id="discagem"></span>
+          </td>
+        </tr>
 
-            <tr>
-                <td>Instituto Brasileiro de Geografia e Estátistica</td>
-                <td>
-                    <span id="ibge"></span>
-                </td>
-            </tr>
+        <tr>
+          <td>Instituto Brasileiro de Geografia e Estátistica</td>
+          <td>
+            <span id="ibge"></span>
+          </td>
+        </tr>
 
-            <tr>
-                <td>Local</td>
-                <td>
-                    <span id="localidade"></span>
-                </td>
-            </tr>
+        <tr>
+          <td>Local</td>
+          <td>
+            <span id="localidade"></span>
+          </td>
+        </tr>
 
-            <tr>
-                <td>Unidade Federativa</td>
-                <td>
-                    <span id="uf"></span>
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+          <td>Unidade Federativa</td>
+          <td>
+            <span id="uf"></span>
+          </td>
+        </tr>
+      </tbody>
     </table>
 
     <script type="text/javascript">
-
-        $("button").click(function(){
-            var cep = document.getElementById('cep1').value;
-            console.log(cep)
-            $.getJSON("https://viacep.com.br/ws/" + cep + '/json/', function(data){
-                console.log(data)  
-                document.querySelector("#cep2").innerHTML = data.cep;
-                document.querySelector("#endereco").innerHTML = data.logradouro;
-                document.querySelector("#bairro").innerHTML = data.bairro;
-                document.querySelector("#discagem").innerHTML = data.ddd;
-                document.querySelector("#ibge").innerHTML = data.ibge;
-                document.querySelector("#localidade").innerHTML = data.localidade;
-                document.querySelector("#uf").innerHTML = data.uf;
-            })
-        })
+      $("button").click(function () {
+        var cep = document.getElementById("cep1").value;
+        console.log(cep);
+        $.getJSON(
+          "https://viacep.com.br/ws/" + cep + "/json/",
+          function (data) {
+            console.log(data);
+            document.querySelector("#cep2").innerHTML = data.cep;
+            document.querySelector("#endereco").innerHTML = data.logradouro;
+            document.querySelector("#bairro").innerHTML = data.bairro;
+            document.querySelector("#discagem").innerHTML = data.ddd;
+            document.querySelector("#ibge").innerHTML = data.ibge;
+            document.querySelector("#localidade").innerHTML = data.localidade;
+            document.querySelector("#uf").innerHTML = data.uf;
+          }
+        );
+      });
     </script>
-    <footer><a href="../menu de projetos/index.html">Voltar para o menu</a></footer>
-</body>
+    <footer>
+      <a href="../menu de projetos/index.html">Voltar para o menu</a>
+    </footer>
+  </body>
 </html>
