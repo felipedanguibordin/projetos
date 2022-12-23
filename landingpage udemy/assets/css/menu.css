@@ -1,11 +1,11 @@
 .menu {
-  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  z-index: 1;
+  border-bottom: 0.1rem solid var(--light-gray-color);
 }
 
 .menu-content {
@@ -32,8 +32,8 @@
 
 .menu ul li a {
   display: block;
+  padding: 2rem;
   font-size: 1.8rem;
-  padding: 20px;
   color: var(--primary-color);
   position: relative;
 }
@@ -45,7 +45,7 @@
   left: 50%;
   width: 0;
   height: 0.2rem;
-  background: crimson;
+  background: var(--secondary-color);
   transition: all 300ms ease-in-out;
 }
 
