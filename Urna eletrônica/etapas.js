@@ -53,9 +53,27 @@ let etapas = [
       },
       {
         numero: "07",
-        nome: "Da Ronco",
+        nome: "DA RONCO",
         partido: "BMB",
         foto: [{ url: "daronco.jpg", legenda: "juiz armário" }],
+      },
+      {
+        numero: "16",
+        nome: "HULK",
+        partido: "SLC",
+        foto: [{ url: "hulk.jpg", legenda: "HULK DA POUPANÇA" }],
+      },
+      {
+        numero: "17",
+        nome: "BOLSONARO DO PASSADO",
+        partido: "PSL",
+        foto: [{ url: "bolsonaro2018.jpg", legenda: "BOLSONARO RETRÔ" }],
+      },
+      {
+        numero: "56",
+        nome: "ADOLF HITLER",
+        partido: "NZS",
+        foto: [{ url: "hitler.jpg", legenda: "ADOLFIO HITLU ❤" }],
       },
     ],
   },
