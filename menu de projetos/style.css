@@ -8,6 +8,11 @@ body {
   background-image: linear-gradient(to left, #373b44, #4286f4);
 }
 
+h1 {
+  font-family: sans-serif;
+  color: white;
+}
+
 .nav-button {
   border: 0;
   border-radius: 4px;
@@ -61,6 +66,21 @@ body {
   top: 25px;
   right: 45px;
   font-size: 60px;
+}
+
+#container {
+  margin: 0 auto;
+  width: auto;
+  display: table;
+  text-align: center;
+}
+
+p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 15px;
+  line-height: 22px;
 }
 
 @media screen and (max-height: 450px) {
