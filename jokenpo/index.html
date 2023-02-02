@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jokenpô</title>
+
+    <style>
+      h1,
+      p {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        margin-top: 24px;
+        margin-bottom: 26px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      div {
+        margin: 0 auto;
+        margin-bottom: 35px;
+        width: fit-content;
+      }
+
+      button {
+        font-size: 72px;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pedra, Papel, Tesoura</h1>
+    <div>
+      <button onclick="jogar('pedra')">✊</button>
+      <button onclick="jogar('papel')">🤚</button>
+      <button onclick="jogar('tesoura')">✌</button>
+    </div>
+
+    <script>
+      const jogadasDisponiveis = ["pedra", "papel", "tesoura"];
+      function jogar(jogadaDoUsuario) {
+        // 1. saber o que o usúario jogou [x]
+        // 2. fazer o computador ter uma jogada [x]
+        // 3. saber quem ganhou [x]
+
+        const jogadaAleatoria = Math.floor(Math.random() * 3);
+        const jogadaDoComputador = jogadasDisponiveis[jogadaAleatoria];
+
+        if (jogadaDoComputador === jogadaDoUsuario) {
+          alert("EMPATE, o computador jogou o mesmo que você");
+        } else if (jogadaDoComputador === "pedra") {
+          if (jogadaDoUsuario === "papel") {
+            alert("GANHOU, o computador jogou pedra");
+          } else {
+            alert("PERDEU, o computador jogou pedra");
+          }
+        } else if (jogadaDoComputador === "papel") {
+          if (jogadaDoUsuario === "pedra") {
+            alert("PERDEU, o computador jogou papel");
+          } else {
+            alert("GANHOU, o computador jogou papel");
+          }
+        } else {
+          if (jogadaDoUsuario === "pedra") {
+            alert("GANHOU, o computador jogou tesoura");
+          } else {
+            alert("PERDEU, o computador jogou tesoura");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
