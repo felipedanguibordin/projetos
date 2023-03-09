@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Popup Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="page" class="site">
+      <header>
+        <h1>Popup Login Form</h1>
+      </header>
+      <main>
+        <div class="button">
+          <a href="#" class="trigger">Show Login</a>
+          <span class="bg-clone"></span>
+        </div>
+        <div class="overlay">
+          <div class="form-box">
+            <form action="">
+              <p class="logo">
+                <a href="#"><span>d</span><span>.webdesign</span></a>
+              </p>
+              <h2>Welcome to my site</h2>
+              <p class="text">Please Login to your account</p>
+              <p>
+                <label for="mail">Mail ID</label>
+                <input
+                  type="text"
+                  id="mail"
+                  placeholder="Your Mail"
+                  required
+                  autocomplete="off"
+                />
+                <span></span>
+              </p>
+
+              <p>
+                <label for="pass">Password</label>
+                <input
+                  type="text"
+                  id="pass"
+                  placeholder="Password"
+                  required
+                  autocomplete="off"
+                />
+                <span></span>
+              </p>
+              <div class="split">
+                <p>
+                  <input type="checkbox" name="keepme" id="keepme" />
+                  <label for="keepme">Keep me sign in</label>
+                </p>
+                <p><a href="#">Forgot Password</a></p>
+              </div>
+              <p class="split">
+                <button class="signin" type="submit">Sign In</button>
+                <button class="signup" type="submit">Sign Up</button>
+              </p>
+            </form>
+            <div class="image">
+              <img src="asset/images (1).jpg" alt="image" />
+            </div>
+            <a href="#" class="close"><span></span></a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
