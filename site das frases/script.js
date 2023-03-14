@@ -17,17 +17,3 @@ botao.addEventListener("click", function () {
   var indice = Math.floor(Math.random() * frases.length);
   texto.innerHTML = frases[indice];
 });
-
-function mostrarConteudo() {
-  // Exibe o GIF
-  document.getElementById("gif").style.display = "block";
-  // Esconde o botão
-  document.getElementById("botao").style.display = "none";
-  // Espera 2 segundos
-  setTimeout(function () {
-    // Esconde o GIF
-    document.getElementById("gif").style.display = "none";
-    // Exibe o conteúdo
-    document.getElementById("conteudo").style.display = "block";
-  }, 1000);
-}
