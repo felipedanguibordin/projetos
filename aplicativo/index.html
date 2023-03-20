@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gerenciamento de Tarefas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Gerenciamento de Tarefas</h1>
+
+    <form id="task-form">
+      <label for="task-input">Nova tarefa:</label>
+      <input
+        type="text"
+        id="task-input"
+        placeholder="Adicionar nova tarefa"
+        required
+        autocomplete="off"
+      />
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="task-list" class="texto-limitado"></ul>
+
+    <script src="script.js"></script>
+  </body>
+</html>

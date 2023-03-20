@@ -1,0 +1,75 @@
+/* Definição de cores */
+:root {
+  --cor-principal: #007bff;
+  --cor-fundo: #f8f9fa;
+  --cor-texto: #343a40;
+}
+
+/* Estilo geral da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+}
+
+/* Título principal */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Monitor de atividade da CPU */
+#cpu-monitor {
+  width: 200px;
+  height: 50px;
+  border: 1px solid var(--cor-principal);
+  margin: 50px auto;
+  position: relative;
+}
+
+.cpu-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--cor-principal);
+  transition: width 0.5s ease-in-out;
+}
+
+.cpu-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+/* Lista de processos em execução */
+.process-list {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.process-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.process-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.process-list li {
+  margin-bottom: 0.5rem;
+}
+
+.process-list .process-name {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.process-list .process-usage {
+  font-size: 0.8rem;
+  color: #666;
+}

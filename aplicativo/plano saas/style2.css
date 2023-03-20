@@ -1,0 +1,143 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.plan-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.plan-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  width: 300px;
+}
+
+.plan-card:nth-child(1) .plan-title {
+  background-color: #ffce54;
+}
+
+.plan-card:nth-child(2) .plan-title {
+  background-color: #48cfad;
+}
+
+.plan-card:nth-child(3) .plan-title {
+  background-color: #4fc1e9;
+}
+
+.plan-title {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+}
+
+.plan-title h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.plan-title h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.plan-features {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan-features li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #3b5998;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #2d4373;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.checkout {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #3b5998;
+}
+
+.product-info,
+.payment-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.product-info {
+  font-weight: bold;
+}
+
+.payment-info {
+  flex-direction: column;
+  align-items: center;
+}
+
+#card-element {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+}
+
+#submit-payment-button {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#submit-payment-button:hover {
+  background-color: #2d4373;
+}

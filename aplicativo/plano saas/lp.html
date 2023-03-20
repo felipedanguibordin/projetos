@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planos do SaaS</title>
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <h1>Escolha o Plano que mais se Adapta às Suas Necessidades</h1>
+
+    <div class="plan-cards">
+      <div class="plan-card">
+        <div class="plan-title">
+          <h2>Plano Básico</h2>
+          <h3>R$ 9,99/mês</h3>
+        </div>
+        <ul class="plan-features">
+          <li>Até 10 tarefas</li>
+          <li>1 usuário</li>
+          <li>Suporte por e-mail</li>
+        </ul>
+        <a href="#" class="button">Assinar Agora</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-title">
+          <h2>Plano Intermediário</h2>
+          <h3>R$ 19,99/mês</h3>
+        </div>
+        <ul class="plan-features">
+          <li>Até 100 tarefas</li>
+          <li>10 usuários</li>
+          <li>Suporte por e-mail e telefone</li>
+        </ul>
+        <a href="#" class="button">Assinar Agora</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-title">
+          <h2>Plano Avançado</h2>
+          <h3>R$ 49,99/mês</h3>
+        </div>
+        <ul class="plan-features">
+          <li>Ilimitado</li>
+          <li>Ilimitado</li>
+          <li>Suporte 24/7</li>
+        </ul>
+        <a href="#" class="button">Assinar Agora</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="checkout">
+        <h2>Checkout</h2>
+
+        <div class="product-info">
+          <h3>Product Name</h3>
+          <span>$29.99</span>
+        </div>
+
+        <hr />
+
+        <div class="payment-info">
+          <h4>Payment Information</h4>
+
+          <div id="card-element"></div>
+
+          <button id="submit-payment-button">Submit Payment</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Configure a sua chave de API do Stripe
+      const stripe = Stripe("sua_chave_api");
+
+      // Crie um elemento para o formulário de pagamento
+      const elements = stripe.elements();
+      const cardElement = elements.create("card");
+
+      // Adicione o elemento do cartão ao formulário
+      cardElement.mount("#card-element");
+
+      // Selecione o formulário de pagamento
+      const paymentForm = document.querySelector(".payment-info");
+
+      // Quando o formulário for enviado, processe o pagamento
+      paymentForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Crie uma sessão de pagamento no servidor
+        const { sessionId } = await fetch("/criar-sessao", {
+          method: "POST",
+        }).then((response) => response.json());
+
+        // Realize o pagamento com o cartão fornecido
+        const { error } = await stripe.confirmCardPayment(sessionId, {
+          payment_method: {
+            card: cardElement,
+          },
+        });
+
+        // Exiba o resultado do pagamento para o usuário
+        const paymentResult = document.getElementById("payment-result");
+        if (error) {
+          paymentResult.textContent = error.message;
+        } else {
+          paymentResult.textContent = "Pagamento processado com sucesso!";
+        }
+      });
+    </script>
+  </body>
+</html>
