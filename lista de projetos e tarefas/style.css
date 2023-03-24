@@ -153,3 +153,29 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #9400d3;
 }
+
+/* Para telas menores que 768px (por exemplo, celulares) */
+@media screen and (max-width: 767px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section {
+    width: 100%;
+  }
+}
+
+/* Para telas maiores que 768px (por exemplo, tablets e desktops) */
+@media screen and (min-width: 768px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  section {
+    width: 45%;
+  }
+}
