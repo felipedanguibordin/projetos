@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Tarefas</title>
+    <style>
+      /* Estilo para o container do to-do list */
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      /* Estilo para a lista de tarefas */
+      .task-list {
+        list-style-type: none;
+        padding: 0;
+        width: 300px;
+        margin-bottom: 10px;
+      }
+
+      /* Estilo para cada item da lista de tarefas */
+      .task-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: #f8f8f8;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        animation: fadeIn 0.5s ease;
+      }
+
+      /* Estilo para o texto da tarefa */
+      .task-text {
+        flex-grow: 1;
+        margin-left: 10px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      h1 {
+        font-weight: 600;
+      }
+
+      h2 {
+        font-weight: 500;
+      }
+
+      input {
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 6px 10px;
+      }
+
+      button {
+        padding: 8px 20px;
+        border-radius: 4px;
+        border: none;
+        background-color: rgb(1, 136, 247);
+        color: #fff;
+      }
+
+      /* Estilo para o botão de ação da tarefa */
+      .task-actions {
+        display: flex;
+      }
+
+      /* Estilo para os botões de ação da tarefa */
+      .task-actions button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #ff6b6b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Estilo para os botões de ação da tarefa quando o cursor está em cima */
+      .task-actions button:hover {
+        background-color: #ff4545;
+      }
+
+      /* Estilo para o botão "Ver Tarefas Excluídas" */
+      #viewDeletedTasksBtn {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #d3d3d3;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Estilo para o botão "Ver Tarefas Excluídas" quando o cursor está em cima */
+      #viewDeletedTasksBtn:hover {
+        background-color: #bfbfbf;
+      }
+
+      /* Estilo para o texto da tarefa quando está marcada como completa */
+      .completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      /* Estilo para o botão de adicionar nova tarefa */
+      #addTaskBtn {
+        padding: 10px;
+        background-color: #1abc9c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+      }
+
+      /* Estilo para o botão de adicionar nova tarefa quando o cursor está em cima */
+      #addTaskBtn:hover {
+        background-color: #16a085;
+      }
+
+      /* Animação para fade in */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Tarefas</h1>
+    <input
+      id="taskInput"
+      class="task-input"
+      type="text"
+      placeholder="Digite uma nova tarefa..."
+    />
+    <ul id="taskList" class="task-list"></ul>
+
+    <h2>Tarefas Concluídas</h2>
+    <ul id="completedTaskList" class="task-list"></ul>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
+      const completedTaskList = document.getElementById("completedTaskList");
+
+      taskInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" && taskInput.value.trim() !== "") {
+          const taskText = taskInput.value.trim();
+          const taskItem = document.createElement("li");
+          const taskId = Date.now();
+          taskItem.id = taskId;
+          taskItem.className = "task-list-item";
+          taskItem.innerHTML = `
+          <input type="checkbox" id="${taskId}-checkbox">
+          <label for="${taskId}-checkbox" class="task-text">${taskText}</label>
+          <div class="task-actions">
+            <button onclick="completeTask(${taskId})">Concluir</button>
+            <button onclick="deleteTask(${taskId})">Excluir</button>
+          </div>
+        `;
+          taskList.appendChild(taskItem);
+          taskInput.value = "";
+        }
+      });
+
+      function completeTask(taskId) {
+        const taskItem = document.getElementById(taskId);
+        const checkbox = taskItem.querySelector('input[type="checkbox"]');
+        const taskText = taskItem.querySelector(".task-text");
+        const taskActions = taskItem.querySelector(".task-actions");
+
+        checkbox.checked = true;
+        taskText.classList.add("completed");
+        taskActions.innerHTML = `
+        <button onclick="undoTask(${taskId})">Refazer</button>
+      `;
+        completedTaskList.appendChild(taskItem);
+      }
+
+      function undoTask(taskId) {
+        const taskItem = document.getElementById(taskId);
+        const checkbox = taskItem.querySelector('input[type="checkbox"]');
+        const taskText = taskItem.querySelector(".task-text");
+        const taskActions = taskItem.querySelector(".task-actions");
+        checkbox.checked = false;
+        taskText.classList.remove("completed");
+        taskActions.innerHTML = `
+    <button onclick="completeTask(${taskId})">Concluir</button>
+    <button onclick="deleteTask(${taskId})">Excluir</button>
+  `;
+        taskList.appendChild(taskItem);
+      }
+
+      function deleteTask(taskId) {
+        const taskItem = document.getElementById(taskId);
+        taskItem.remove();
+      }
+
+      function viewDeletedTasks() {
+        completedTaskList.style.display = "block";
+      }
+
+      function redoTask(taskId) {
+        const taskItem = document.getElementById(taskId);
+        const checkbox = taskItem.querySelector('input[type="checkbox"]');
+        const taskText = taskItem.querySelector(".task-text");
+        const taskActions = taskItem.querySelector(".task-actions");
+
+        checkbox.checked = false;
+        taskText.classList.remove("completed");
+        taskActions.innerHTML = `
+    <button onclick="completeTask(${taskId})">Concluir</button>
+    <button onclick="deleteTask(${taskId})">Excluir</button>
+  `;
+        taskList.appendChild(taskItem);
+        completedTaskList.style.display = "none";
+      }
+    </script>
+    <button onclick="viewDeletedTasks()">Ver Tarefas Excluídas</button>
+  </body>
+</html>

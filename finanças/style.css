@@ -1,0 +1,82 @@
+body {
+  background-color: #6161613d !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 400px !important;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.37);
+}
+
+.title {
+  text-align: center;
+  color: #3c8f3c;
+  margin-top: 0;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form label,
+form input,
+form select,
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+form select,
+form button {
+  background-color: #e1f0e1;
+  color: #3c8f3c;
+}
+
+form input {
+  background-color: #f2f2f2;
+}
+
+form button {
+  background-color: #3c8f3c;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #368d36;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d3ecd3;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+li .delete-btn {
+  cursor: pointer;
+  color: #ff4444;
+}
+
+#total-balance {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #3c8f3c;
+}
