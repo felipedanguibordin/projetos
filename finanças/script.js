@@ -6,7 +6,12 @@ const typeSelect = document.getElementById("type-select");
 const transactionList = document.getElementById("transaction-list");
 const totalBalance = document.getElementById("total-balance");
 
-let transactions = JSON.parse(window.localStorage.getItem("valores"));
+let transactions = [];
+
+if (window.localStorage.getItem("valores") != undefined) {
+  transactions = JSON.parse(window.localStorage.getItem("valores"));
+}
+
 updateTransactionList();
 updateTotalBalance();
 
