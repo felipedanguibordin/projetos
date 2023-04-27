@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Por que Usamos o Elemento <br>",
+    "answer_1": "Para Deixar o Texto Negrito",
+    "answer_2": "Para Deixar o Texto Italico",
+    "answer_3": "Para Adicionar uma Quebra de Linha",
+    "answer_4": "Para Criar uma Linha Orizontal",
+    "right_answer": "Para Adicionar uma Quebra de Linha"
+  },
+  {
+    "title": "O Elemento <img> Possui o Atributo href",
+    "answer_1": "Sim",
+    "answer_2": "Não, é Para Marca de Âncora do Elemento <a>",
+    "answer_3": "Todos os Elementos tem Esse Atributo",
+    "answer_4": "As Respostas 1 e 3 Estão Corretas",
+    "right_answer": "Não, é Para Marca de Âncora do Elemento <a>"
+  },
+  {
+    "title": "Como é Feito Para Deixar o Texto em Negrito",
+    "answer_1": "Colocando Dentro da Tag <b>",
+    "answer_2": "Colocando Dentro da Tag <strong>",
+    "answer_3": "Customizando com o Font-Weight no CSS",
+    "answer_4": "Todas as Respostas Estão Corretas",
+    "right_answer": "Todas as Respostas Estão Corretas"
+  },
+  {
+    "title": "Qual é a Hierarquia para criar um site",
+    "answer_1": "<h2> -> <p> -> <h1> -> <p> -> <h3> -> <p> -> <img>",
+    "answer_2": "<h1> -> <p> -> <h3> -> <p> -> <h2> -> <p> -> <img>",
+    "answer_3": "<h2> -> <p> -> <h3> -> <p> -> <h1> -> <p> -> <img>",
+    "answer_4": "Nenhuma das Alternativas",
+    "right_answer": "Nenhuma das Alternativas"
+  },
+  {
+    "title": "Como Podemos Adicionar Outra Página na Nossa Página HTML",
+    "answer_1": "Usando o Incluir no HTML",
+    "answer_2": "Usando o Carregar no HTML",
+    "answer_3": "Usando a Tag iFrame",
+    "answer_4": "Nenhuma das Alternativas",
+    "right_answer": "Usando a Tag iFrame"
+  },
+  {
+    "title": "Qual Dessas Tags não Existem na Linguagem HTML",
+    "answer_1": "<object>",
+    "answer_2": "<basefont>",
+    "answer_3": "<abbr>",
+    "answer_4": "Todas as Tags Existem na Linguagem HTML",
+    "right_answer": "Todas as Tags Existem na Linguagem HTML"
+  },
+  {
+    "title": "Como especificamos o tipo de documento da página HTML5",
+    "answer_1": "<DOCTYPE html>",
+    "answer_2": "<DOCTYPE html5>",
+    "answer_3": "<!DOCTYPE html5>",
+    "answer_4": "<!DOCTYPE html>",
+    "right_answer": "<!DOCTYPE html>"
+  },
+  {
+    "title": "Qual é o elemento que não existe na semântica do HTML5",
+    "answer_1": "<article>",
+    "answer_2": "<section>",
+    "answer_3": "<blockquote>",
+    "answer_4": "<aside>",
+    "right_answer": "<blockquote>"
+  },
+  {
+    "title": "Na Linguagem HTML Podemos Usar Essa Maneira Para Adicionar Atributos",
+    "answer_1": "<div class='class-name'>",
+    "answer_2": "<div class=class-name>",
+    "answer_3": "<div class=\"class-name\">",
+    "answer_4": "Todas as Respostas Estão Corretas",
+    "right_answer": "Todas as Respostas Estão Corretas"
+  }
+]
