@@ -115,7 +115,7 @@ nav .container {
 }
 
 nav .search-bar:hover {
-  background: hsla(255, 31%, 95%, 0.589);
+  opacity: 0.8;
 }
 
 .search-bar input[type="search"] {
@@ -496,7 +496,7 @@ main .container .right {
 }
 
 .right .messages .search-bar:hover {
-  background: hsla(255, 31%, 95%, 0.589);
+  opacity: 0.8;
 }
 
 .right .messages .category {
