@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Site de Finanças</title>
+
+    <!-- Importações do Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Estilos personalizados -->
+    <style>
+      body {
+        background-color: #f8f9faec;
+        color: #333;
+      }
+      .navbar {
+        background-color: #28a746b2;
+        color: #fff;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .section {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.342);
+        margin-bottom: 30px;
+      }
+
+      .section:hover {
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.479);
+      }
+      h1,
+      h2,
+      h3 {
+        color: #28a746b2;
+      }
+      svg {
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-currency-dollar"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"
+        />
+      </svg>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#investimentos"
+              >Guia para Investimentos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#economizar">Como Economizar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#curiosidades">Curiosidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#financas">Administrar Finanças</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#dicas">Dicas</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Conteúdo do site -->
+    <div class="container">
+      <div class="section" id="investimentos">
+        <h1>Guia para Investimentos</h1>
+        <p>
+          Aqui você encontrará informações sobre diferentes tipos de
+          investimentos, estratégias e dicas para investir com sabedoria.
+        </p>
+        <h3>Tipos de Investimentos</h3>
+        <p>Existem diversos tipos de investimentos, tais como:</p>
+        <ul>
+          <li>Ações</li>
+          <li>Títulos públicos</li>
+          <li>Fundos de investimento</li>
+          <li>Imóveis</li>
+          <li>Criptomoedas</li>
+        </ul>
+        <h3>Estratégias de Investimento</h3>
+        <p>Ao investir, é importante considerar algumas estratégias, como:</p>
+        <ul>
+          <li>Diversificação</li>
+          <li>Investimento de longo prazo</li>
+          <li>Análise fundamentalista</li>
+          <li>Análise técnica</li>
+        </ul>
+      </div>
+
+      <div class="section" id="economizar">
+        <h2>Como Economizar</h2>
+        <p>
+          Economizar dinheiro é fundamental para alcançar a estabilidade
+          financeira. Aqui estão algumas dicas úteis:
+        </p>
+        <h3>Corte de Gastos</h3>
+        <p>
+          Identifique seus gastos supérfluos e encontre maneiras de reduzi-los
+          ou eliminá-los completamente. Alguns exemplos incluem:
+        </p>
+        <ul>
+          <li>Evitar compras impulsivas</li>
+          <li>Optar por marcas mais baratas</li>
+          <li>Cancelar assinaturas não utilizadas</li>
+          <li>Reduzir gastos com entretenimento</li>
+        </ul>
+        <h3>Planejamento Financeiro</h3>
+        <p>
+          Elabore um plano financeiro para acompanhar seus gastos, definir metas
+          de economia e monitorar seu progresso. Algumas etapas a considerar
+          são:
+        </p>
+        <ul>
+          <li>Criar um orçamento mensal</li>
+          <li>Priorizar despesas essenciais</li>
+          <li>Estabelecer um fundo de emergência</li>
+          <li>Automatizar economias</li>
+        </ul>
+        <h3>Estilo de Vida Frugal</h3>
+        <p>
+          Adote um estilo de vida frugal, valorizando mais experiências do que
+          bens materiais. Algumas práticas que podem ajudar são:
+        </p>
+        <ul>
+          <li>Cozinhar em casa em vez de comer fora</li>
+          <li>Utilizar transporte público ou bicicleta</li>
+          <li>Compartilhar despesas com amigos e familiares</li>
+          <li>Aproveitar promoções e cupons</li>
+        </ul>
+      </div>
+
+      <div class="section curiosidades" id="curiosidades">
+        <h2>Curiosidades Financeiras</h2>
+        <p>
+          Você sabia que com o preço de uma Lamborghini Aventador, seria
+          possível comprar 600.000 picolés de 5R$ cada? Essa é apenas uma das
+          curiosidades fascinantes sobre dinheiro. Por exemplo, você sabia que:
+        </p>
+        <ul>
+          <li>
+            Com o dinheiro gasto em um iPhone, você pode comprar ações de uma
+            empresa;
+          </li>
+          <li>
+            O valor da fortuna de Jeff Bezos, fundador da Amazon, é maior do que
+            o PIB de muitos países;
+          </li>
+          <li>
+            O salário médio de um jogador de futebol profissional é cerca de
+            1.000 vezes maior que o salário médio de um professor;
+          </li>
+          <li>
+            Se você investir uma pequena quantia em ações de empresas famosas
+            quando elas foram lançadas, seu dinheiro teria se multiplicado
+            várias vezes.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section" id="financas">
+        <h2>Administrar Finanças</h2>
+        <p>
+          Administrar suas finanças pessoais é essencial para alcançar seus
+          objetivos financeiros. Aqui estão algumas dicas para ajudar você a
+          gerenciar suas finanças de forma eficaz:
+        </p>
+        <h3>Faça um Orçamento</h3>
+        <p>
+          Crie um orçamento detalhado que liste todas as suas receitas e
+          despesas. Acompanhe seus gastos mensais e certifique-se de que suas
+          despesas não excedam sua renda.
+        </p>
+        <h3>Economize Regularmente</h3>
+        <p>
+          Estabeleça o hábito de economizar regularmente. Defina metas de
+          economia e reserve uma parte de sua renda para economizar. Automatize
+          suas economias, transferindo automaticamente uma quantia para uma
+          conta de poupança ou investimentos.
+        </p>
+        <h3>Reduza suas Dívidas</h3>
+        <p>
+          Se você possui dívidas, concentre-se em reduzi-las. Priorize o
+          pagamento das dívidas com taxas de juros mais altas e considere
+          consolidar ou refinanciar suas dívidas para obter melhores condições
+          de pagamento.
+        </p>
+        <h3>Planeje para o Futuro</h3>
+        <p>
+          Planeje seu futuro financeiro estabelecendo metas de longo prazo.
+          Considere investir em aposentadoria, educação ou outras metas
+          financeiras importantes para você. Consulte um profissional
+          financeiro, se necessário, para obter orientação especializada.
+        </p>
+      </div>
+
+      <div class="section" id="dicas">
+        <h2>Dicas Financeiras</h2>
+        <p>
+          Confira uma coleção de dicas valiosas para melhorar suas finanças,
+          aumentar sua renda, evitar armadilhas financeiras e alcançar a
+          liberdade financeira.
+        </p>
+        <h3>1. Crie um Fundo de Emergência</h3>
+        <p>
+          Ter um fundo de emergência é essencial para lidar com imprevistos
+          financeiros. Reserve uma quantia de dinheiro suficiente para cobrir
+          pelo menos 3 a 6 meses de despesas básicas. Isso fornecerá uma rede de
+          segurança financeira e evitará que você recorra a dívidas em situações
+          de emergência.
+        </p>
+        <h3>2. Invista em seu Conhecimento Financeiro</h3>
+        <p>
+          Dedique tempo para aprender sobre finanças pessoais, investimentos e
+          estratégias de crescimento financeiro. Leia livros, participe de
+          cursos online ou busque aconselhamento de profissionais financeiros.
+          Quanto mais você conhece sobre o assunto, mais bem equipado estará
+          para tomar decisões financeiras inteligentes.
+        </p>
+        <h3>3. Automatize suas Economias</h3>
+        <p>
+          Configure transferências automáticas para uma conta de poupança ou
+          investimento. Dessa forma, uma parte de sua renda será reservada
+          automaticamente para economias, sem que você precise se lembrar de
+          fazê-lo manualmente. Essa prática tornará o processo de economizar
+          mais fácil e consistente ao longo do tempo.
+        </p>
+        <h3>4. Evite Dívidas Desnecessárias</h3>
+        <p>
+          Evite contrair dívidas para comprar itens supérfluos ou financiar um
+          estilo de vida além de suas possibilidades. Se precisar fazer uma
+          compra importante, planeje com antecedência, economize e pague à vista
+          sempre que possível. Caso precise recorrer a um empréstimo, avalie
+          cuidadosamente os termos e certifique-se de que poderá honrar os
+          pagamentos.
+        </p>
+        <h3>5. Acompanhe seus Gastos Regularmente</h3>
+        <p>
+          Mantenha o controle de seus gastos regularmente, verificando seus
+          extratos bancários, faturas de cartão de crédito e registros
+          financeiros. Isso ajudará você a identificar áreas onde está gastando
+          demais e a tomar medidas corretivas. O acompanhamento regular de seus
+          gastos também o manterá consciente de seus hábitos financeiros e
+          ajudará a evitar gastos impulsivos.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
