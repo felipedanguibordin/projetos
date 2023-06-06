@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  background-color: #f2f2f2;
+}
+
+main {
+  padding: 30px;
+  background-color: #ccc;
+  width: 100vw;
+  height: 91vh;
+}
+
+.container {
+  box-shadow: rgba(0, 0, 0, 0.267) 1.95px 1.95px 2.6px;
+}
+
+.introducao {
+  padding: 5px;
+  margin: 5px;
+  font-size: 18px;
+}
+
+.introducao label {
+  font-weight: bold;
+}
+
+.cria {
+  padding: 5px;
+  font-size: 18px;
+}
+
+.cria button {
+  width: 20%;
+}

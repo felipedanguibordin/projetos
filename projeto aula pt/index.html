@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Teste</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Teste</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Crie seu RPG</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Veja mais</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Seus RPGs
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Continuar</a></li>
+                  <li><a class="dropdown-item" href="#">Novo</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Ver histórico de jogos</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div
+        class="container mt-4"
+        style="background-color: #f2f2f2; border-radius: 6px"
+      >
+        <div class="row">
+          <div class="introducao">
+            <label class="mt-2">Introdução</label>
+            <p>
+              Este site foi criado para um trabalho na matéria de Produção
+              Textual. O objetivo do site é conter um criador de RGP e nele
+              serão fornecidas dicas e auxílios para a construção de uma
+              redação. Aproveite!
+            </p>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div
+        class="container mt-4"
+        style="background-color: #f2f2f2; border-radius: 6px"
+      >
+        <div class="cria">
+          <div class="row">
+            <div class="mb-3 col-md-4">
+              <label class="mt-2">Nome do RPG</label>
+              <input
+                class="form-control"
+                id="exampleFormControlInput1"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-md-4 mt-2">
+              <label>Tipo</label>
+              <select
+                class="form-select"
+                id="tipoRPG"
+                aria-label="Default select example"
+              >
+                <option value="1">Ação</option>
+                <option value="2">Aventura</option>
+                <option value="3">Suspense</option>
+              </select>
+            </div>
+
+            <div class="mt-1 d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-outline-secondary">
+                Criar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
