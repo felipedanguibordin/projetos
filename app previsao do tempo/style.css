@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,300;0,500;0,700;1,400&family=Poppins:wght@100;200;300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("http://source.unsplash.com/1600x900/?landscape");
+  background-repeat: no-repeat; /* Adicionando no-repeat para a imagem de fundo */
+  background-size: cover; /* Opcional: redimensionar a imagem para cobrir a tela */
+}
+
+.caixa-maior {
+  background: #000000;
+  opacity: 0.8;
+  border-radius: 25px;
+  padding: 20px;
+  width: 95%;
+  max-width: 450px;
+  transition: opacity 0.3s ease-in-out; /* Adicionando uma transição suave de 0.3 segundos */
+}
+
+.caixa-maior.mostrar {
+  opacity: 1;
+}
+
+.input-cidade {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 18px;
+  background-color: #7c7c7c2b;
+  color: #fff;
+  width: calc(100% - 50px);
+}
+
+.img-busca {
+  width: 20px;
+}
+
+.botao-busca {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #7c7c7c2b;
+  cursor: pointer;
+  float: right;
+}
+
+.caixa-media {
+  margin-top: 30px;
+}
+
+.nome-cidade {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.temp {
+  font-size: 20px;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.caixa-menor {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.texto-previsao {
+  color: #fff;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+.umidade {
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* Estilos para telas maiores, como desktops e tablets */
+@media screen and (min-width: 768px) {
+  .caixa-maior {
+    max-width: 600px; /* Mantém a largura máxima para telas maiores */
+  }
+
+  /* Aumenta o tamanho da fonte para melhor legibilidade */
+  .nome-cidade {
+    font-size: 28px;
+  }
+
+  .temp {
+    font-size: 24px;
+  }
+
+  /* Ajusta o layout da caixa menor para exibir elementos em linha */
+  .caixa-menor {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Adiciona margem à esquerda para espaçamento entre a imagem e o texto */
+  .img-previsao {
+    margin-right: 10px;
+  }
+}
+
+/* Estilos para telas grandes, como monitores e televisões */
+@media screen and (min-width: 1200px) {
+  .caixa-maior {
+    max-width: 550px; /* Define a largura máxima para telas maiores */
+  }
+
+  /* Aumenta o tamanho da fonte ainda mais para legibilidade em telas maiores */
+  .nome-cidade {
+    font-size: 32px;
+  }
+
+  .temp {
+    font-size: 28px;
+  }
+
+  /* Ajusta o layout da caixa menor para exibir elementos em linha */
+  .caixa-menor {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Aumenta o tamanho da fonte para o texto da previsão */
+  .texto-previsao {
+    font-size: 24px;
+  }
+
+  /* Adiciona margem à esquerda para espaçamento entre a imagem e o texto */
+  .img-previsao {
+    margin-right: 20px;
+  }
+}
+
+/* Estilos para telas menores, como celulares */
+@media screen and (max-width: 767px) {
+  .caixa-maior {
+    max-width: 90%; /* Aumenta a largura máxima para ocupar a largura total da tela */
+  }
+
+  .input-cidade {
+    width: 100%; /* Faça o campo de entrada ocupar toda a largura disponível */
+  }
+
+  .botao-busca {
+    float: none; /* Remove o flutuador para centralizar o botão */
+    margin-top: 10px; /* Adicione um pequeno espaçamento superior para melhor espaçamento */
+  }
+
+  /* Estilos adicionais para melhorar a legibilidade em telas menores */
+  .nome-cidade {
+    font-size: 24px;
+  }
+
+  .temp {
+    font-size: 18px;
+  }
+
+  .caixa-menor {
+    flex-direction: column; /* Altera o layout da caixa menor para empilhar os elementos verticalmente */
+    align-items: flex-start;
+  }
+}
