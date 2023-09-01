@@ -152,11 +152,11 @@ body {
 /* Estilos para telas menores, como celulares */
 @media screen and (max-width: 767px) {
   .caixa-maior {
-    max-width: 90%; /* Aumenta a largura máxima para ocupar a largura total da tela */
+    max-width: 400px; /* Aumenta a largura máxima para ocupar a largura total da tela */
   }
 
   .input-cidade {
-    width: 100%; /* Faça o campo de entrada ocupar toda a largura disponível */
+    width: 80%; /* Faça o campo de entrada ocupar toda a largura disponível */
   }
 
   .botao-busca {
