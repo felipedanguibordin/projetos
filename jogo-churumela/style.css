@@ -2,7 +2,7 @@ body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1c1c1c; /* Cor de fundo escura */
+  background-color: #1c1c1c;
   color: #fff;
 }
 header {
@@ -14,12 +14,17 @@ header {
 
 #game-section {
   text-align: center;
-  margin: 40px; /* Aumentei a margem para dar mais destaque à imagem */
+  margin: 40px;
 }
 
 #game-section img {
-  max-width: 80%;
-  height: auto;
+  max-width: 100%;
+  width: 174px;
+  max-height: 250px;
+  height: 250px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 #about-section {
@@ -29,88 +34,11 @@ header {
 }
 
 section {
-  background-color: #2c2c2c; /* Fundo escuro para seções de informações */
+  background-color: #2c2c2c;
   color: #fff;
   padding: 20px;
   margin: 20px;
-  border-radius: 10px; /* Borda arredondada para suavizar o visual */
-}
-
-.character-section {
-  margin: 20px 0;
-  padding: 15px;
-  background-color: #3c3c3c;
   border-radius: 10px;
-  position: relative;
-}
-.character-section img {
-  max-width: 100%;
-  max-height: 250px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-/* Estilos para o carrossel */
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  border-radius: 8px;
-}
-
-.carousel-track {
-  display: flex;
-  width: 400%; /* 4 vezes a largura para acomodar 4 slides */
-  transition: transform 1s ease; /* Adicionado efeito de transição */
-  position: relative;
-}
-
-.carousel-slide {
-  flex: 0 0 25%; /* Ocupa 1/4 do contêiner */
-  position: relative;
-}
-
-/* .carousel-slide::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  z-index: 1;
-} */
-
-/* Botões de navegação do carrossel */
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin: 0 5px;
-  border-radius: 5px;
-}
-
-.prev-btn:hover,
-.next-btn:hover {
-  background-color: #555;
-}
-
-.prev-btn {
-  left: 0;
-}
-
-.next-btn {
-  right: 0;
 }
 
 .div-sobre {
@@ -122,8 +50,18 @@ section {
   border-radius: 5px;
 }
 
+strong {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+}
+
 .frase-de-efeito {
-  padding-top: 530px;
+  padding-top: 690px;
+  font-size: 24px;
 }
 
 footer {
