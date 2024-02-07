@@ -1,0 +1,156 @@
+/* Adicionei algumas regras de estilo para melhorar a aparência e o layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  background: #274c77;
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a.active {
+  border-bottom: 2px solid #fff;
+}
+
+main-content {
+  padding: 20px 0;
+}
+
+.main-content .container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.featured-article {
+  flex: 3;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-right: 20px; /* Adicionado padding lateral */
+}
+
+.featured-article img {
+  width: 100%;
+  height: auto;
+}
+
+.side-by-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Alterado para coluna */
+}
+
+.news {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.news img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.article-info {
+  padding: 20px;
+}
+
+.article-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.article-info p {
+  line-height: 1.5;
+}
+
+.article-info .read-more {
+  display: inline-block;
+  background-color: #274c77;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.article-info .read-more:hover {
+  background-color: #6096ba;
+}
+
+.sidebar {
+  flex: 1;
+  padding: 15px;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebar p {
+  line-height: 1.5;
+}
+
+/* Adicionei regras de estilo para melhorar a aparência e o layout em dispositivos de diferentes tamanhos */
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .featured-article,
+  .news {
+    margin-bottom: 20px;
+  }
+
+  .sidebar {
+    margin-top: 20px;
+  }
+}
