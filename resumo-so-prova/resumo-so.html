@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>XANDE</title>
+    <style>
+      body {
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+      .xande {
+        position: absolute;
+        font-size: random(10-100px);
+        color: rgb(random(0-255), random(0-255), random(0-255));
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      for (let i = 0; i < 100; i++) {
+        const xande = document.createElement("div");
+        xande.className = "xande";
+        xande.innerText = "XANDE";
+        xande.style.top = `${Math.random() * 100}%`;
+        xande.style.left = `${Math.random() * 100}%`;
+        xande.style.fontSize = `${Math.random() * 50 + 10}px`;
+        xande.style.color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        document.body.appendChild(xande);
+      }
+    </script>
+  </body>
+</html>
