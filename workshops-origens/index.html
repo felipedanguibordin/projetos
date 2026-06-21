@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Workshops Origens</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #080b10;
+        --ink: #f8fafc;
+        --muted: #a7b0bf;
+        --line: rgba(255, 255, 255, 0.16);
+        --panel: rgba(255, 255, 255, 0.075);
+        --accent: #14b8a6;
+        --accent-soft: rgba(20, 184, 166, 0.22);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      button {
+        border: 0;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .app {
+        position: relative;
+        width: 100vw;
+        height: 100dvh;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 12% 10%,
+            var(--accent-soft),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 85% 82%,
+            color-mix(in srgb, var(--accent) 20%, transparent),
+            transparent 38%
+          ),
+          linear-gradient(145deg, #080b10 0%, #111827 50%, #07090d 100%);
+      }
+
+      .track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.32s cubic-bezier(0.2, 0.85, 0.25, 1);
+        touch-action: pan-y;
+        will-change: transform;
+      }
+
+      .slide {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        min-height: 100dvh;
+        padding: max(18px, env(safe-area-inset-top)) 18px
+          max(18px, env(safe-area-inset-bottom));
+        display: grid;
+        align-items: stretch;
+        overflow-y: auto;
+        background:
+          linear-gradient(
+            160deg,
+            color-mix(in srgb, var(--accent) 25%, transparent),
+            transparent 45%
+          ),
+          linear-gradient(20deg, rgba(255, 255, 255, 0.035), transparent 48%);
+      }
+
+      .content {
+        width: min(860px, 100%);
+        min-height: calc(100dvh - 36px);
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 18px;
+      }
+
+      .topbar,
+      .bottombar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 44px;
+      }
+
+      .bottombar {
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .mark {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #061014;
+        font-weight: 950;
+        letter-spacing: 0;
+        flex: 0 0 auto;
+      }
+
+      .counter {
+        min-width: 68px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.82rem;
+        font-weight: 850;
+        background: rgba(0, 0, 0, 0.22);
+      }
+
+      .stage {
+        display: grid;
+        align-content: center;
+        gap: 18px;
+        padding: 4px 0;
+      }
+
+      .workshop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .workshop::before {
+        content: "";
+        width: 34px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        width: min(100%, 780px);
+        max-width: 100%;
+        font-size: clamp(2.15rem, 10.8vw, 5.8rem);
+        line-height: 0.94;
+        letter-spacing: 0;
+        overflow-wrap: break-word;
+        word-break: normal;
+        text-wrap: balance;
+      }
+
+      h1.long-title {
+        font-size: clamp(1.95rem, 9.2vw, 4.8rem);
+        line-height: 0.98;
+      }
+
+      h1.xlong-title {
+        font-size: clamp(1.75rem, 7.8vw, 3.9rem);
+        line-height: 1.02;
+      }
+
+      .description {
+        max-width: 760px;
+        margin: 0;
+        color: #d7dde8;
+        font-size: clamp(1.02rem, 4.5vw, 1.45rem);
+        line-height: 1.34;
+        font-weight: 560;
+      }
+
+      .materials {
+        display: grid;
+        gap: 9px;
+        margin: 2px 0 0;
+        padding: 0;
+        list-style: none;
+        max-width: 760px;
+      }
+
+      .materials li {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.3;
+      }
+
+      .materials li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        margin-top: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .idea-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        width: fit-content;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: #e9edf5;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+        font-weight: 850;
+      }
+
+      .vote {
+        min-height: 52px;
+        border-radius: 8px;
+        padding: 0 18px;
+        background: var(--accent);
+        color: #061014;
+        font-weight: 950;
+        letter-spacing: 0;
+        box-shadow: 0 16px 40px
+          color-mix(in srgb, var(--accent) 25%, transparent);
+        flex: 1 1 190px;
+      }
+
+      .vote.selected {
+        background: #f8fafc;
+        color: #0f172a;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--ink);
+        font-size: 1.35rem;
+        font-weight: 900;
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.28;
+        cursor: default;
+      }
+
+      .progress {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .bar {
+        width: 0;
+        height: 100%;
+        background: var(--accent);
+        transition:
+          width 0.28s ease,
+          background 0.2s ease;
+      }
+
+      .admin-panel {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 16px;
+        z-index: 5;
+        display: grid;
+        gap: 10px;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(8, 11, 16, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .admin-panel[hidden] {
+        display: none;
+      }
+
+      .admin-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .admin-actions button {
+        min-height: 40px;
+        border-radius: 8px;
+        padding: 0 12px;
+        background: var(--ink);
+        color: #0f172a;
+        font-weight: 900;
+      }
+
+      .admin-json {
+        max-height: 180px;
+        overflow: auto;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.4;
+        white-space: pre-wrap;
+      }
+
+      @media (min-width: 760px) {
+        .slide {
+          padding-inline: 34px;
+        }
+
+        .content {
+          min-height: calc(100dvh - 68px);
+        }
+
+        .stage {
+          gap: 22px;
+        }
+
+        h1 {
+          width: min(100%, 860px);
+        }
+
+        .materials {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-height: 690px) {
+        h1 {
+          font-size: clamp(1.9rem, 8.8vw, 4.3rem);
+        }
+
+        h1.long-title {
+          font-size: clamp(1.72rem, 7.8vw, 3.55rem);
+        }
+
+        h1.xlong-title {
+          font-size: clamp(1.52rem, 6.7vw, 3rem);
+        }
+
+        .description {
+          font-size: 0.98rem;
+        }
+
+        .materials li {
+          font-size: 0.86rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <div class="track" id="track"></div>
+      <div class="progress" aria-hidden="true">
+        <div class="bar" id="bar"></div>
+      </div>
+    </div>
+    <section class="admin-panel" id="adminPanel" hidden>
+      <div class="admin-actions">
+        <button type="button" id="downloadVotes">Baixar JSON</button>
+        <button type="button" id="resetVotes">Zerar votos deste aparelho</button>
+      </div>
+      <pre class="admin-json" id="adminJson"></pre>
+    </section>
+
+    <script>
+      const workshops = [
+        {
+          title: "Empreendedorismo",
+          accent: "#14b8a6",
+          ideas: [
+            {
+              title: "Como uma ideia vira negocio",
+              badge: "ensino + aplicacao",
+              description:
+                "O palestrante explica os fundamentos de oportunidade, publico e proposta de valor. Depois, os participantes analisam ideias simples e identificam quais teriam mais chance de sair do papel.",
+              materials: [
+                "Telão ou TV",
+                "Slides do palestrante",
+                "Folhas de analise de ideia",
+                "Canetas",
+                "Post-its",
+              ],
+            },
+            {
+              title: "Talentos, servico e primeiro passo",
+              badge: "reflexao guiada",
+              description:
+                "A conversa parte dos talentos e interesses dos jovens para mostrar como habilidades podem gerar valor. A atividade final ajuda cada um a definir um primeiro passo realista.",
+              materials: [
+                "Telão ou TV",
+                "Folhas de reflexao individual",
+                "Canetas",
+                "Quadro ou flip chart",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Midias digitais e criatividade",
+          accent: "#f97316",
+          ideas: [
+            {
+              title: "Conteudo com intencao",
+              badge: "aula dialogada",
+              description:
+                "O palestrante mostra como uma mensagem ganha clareza nas redes: objetivo, publico, formato e responsabilidade. Em seguida, o grupo monta roteiros curtos sem precisar gravar na hora.",
+              materials: [
+                "Telão ou TV",
+                "Exemplos de posts ou videos",
+                "Roteiro impresso",
+                "Canetas",
+                "Celulares para consulta",
+              ],
+            },
+            {
+              title: "Criatividade sem copiar tendencia",
+              badge: "analise + criacao",
+              description:
+                "A ideia e discutir criatividade, originalidade e bom senso. Os participantes analisam formatos populares e adaptam uma mensagem com mais profundidade e proposito.",
+              materials: [
+                "Telão ou TV",
+                "Cartoes com formatos de conteudo",
+                "Folhas de planejamento",
+                "Post-its",
+                "Canetas",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Artes e danca",
+          accent: "#eab308",
+          ideas: [
+            {
+              title: "Arte como linguagem",
+              badge: "sensibilidade",
+              description:
+                "O palestrante conduz uma conversa sobre arte, beleza, expressao e mensagem. A parte pratica e leve: observar uma obra, uma musica ou movimento e conversar sobre o que comunica.",
+              materials: [
+                "Caixa de som",
+                "Imagens ou videos de referencia",
+                "Folhas de anotacao",
+                "Canetas",
+              ],
+            },
+            {
+              title: "Corpo, ritmo e presenca",
+              badge: "vivencia moderada",
+              description:
+                "Uma introducao sobre danca, postura e comunicacao corporal, seguida de exercicios simples de ritmo e presenca. A proposta e incluir todos sem expor quem nao se sente confortavel.",
+              materials: [
+                "Caixa de som",
+                "Playlist selecionada",
+                "Espaco livre",
+                "Agua",
+                "Roteiro de atividade",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Inteligencia artificial no dia a dia",
+          accent: "#60a5fa",
+          ideas: [
+            {
+              title: "IA: ajuda, limite e responsabilidade",
+              badge: "conversa essencial",
+              description:
+                "O palestrante apresenta usos reais de IA para estudo, rotina e trabalho, mas tambem fala de erros, vieses, privacidade e dependencia. A aplicacao e comparar respostas e avaliar com criterio.",
+              materials: [
+                "Telão ou TV",
+                "Wi-Fi",
+                "Celulares ou notebook",
+                "Exemplos de prompts",
+                "Folhas para anotacao",
+              ],
+            },
+            {
+              title: "IA para estudar melhor",
+              badge: "aplicacao orientada",
+              description:
+                "Depois de uma explicacao sobre como pedir ajuda com clareza, os participantes testam comandos para resumo, revisao e planejamento. O foco e aprender a revisar a resposta, nao aceitar tudo automaticamente.",
+              materials: [
+                "Celulares ou notebooks",
+                "Wi-Fi",
+                "Lista de comandos",
+                "Modelo de plano de estudo",
+                "Canetas",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Marketing pessoal",
+          accent: "#22c55e",
+          ideas: [
+            {
+              title: "Como as pessoas percebem voce",
+              badge: "identidade",
+              description:
+                "O palestrante trabalha postura, comunicacao, coerencia e reputacao. A pratica e cada participante escrever uma apresentacao pessoal curta, com feedback opcional e respeitoso.",
+              materials: [
+                "Telão ou TV",
+                "Roteiro impresso",
+                "Canetas",
+                "Cartoes de feedback",
+                "Cronometro",
+              ],
+            },
+            {
+              title: "Presenca digital com coerencia",
+              badge: "perfil e postura",
+              description:
+                "Uma conversa sobre redes sociais, oportunidades e cuidado com a propria imagem. Os jovens revisam bio, foto, linguagem e o que desejam comunicar.",
+              materials: [
+                "Telão ou TV",
+                "Celulares",
+                "Exemplos de perfis",
+                "Folhas de rascunho",
+                "Canetas",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Mecanica basica de automoveis",
+          accent: "#ef4444",
+          ideas: [
+            {
+              title: "Cuidados que evitam problemas",
+              badge: "demonstracao guiada",
+              description:
+                "O facilitador explica os principais cuidados de manutencao e seguranca. Depois demonstra no carro como verificar pneus, oleo, agua, luzes e itens de emergencia.",
+              materials: [
+                "Um carro disponivel",
+                "Medidor de pressao",
+                "Pano ou papel toalha",
+                "Luvas",
+                "Lanterna",
+                "Lista de checklist impressa",
+              ],
+            },
+            {
+              title: "O que fazer em uma emergencia",
+              badge: "seguranca",
+              description:
+                "Uma aula pratica e calma sobre pane, pneu furado e atitudes seguras. A participacao pode ser por observacao, perguntas e organizacao da sequencia correta de acoes.",
+              materials: [
+                "Carro com estepe",
+                "Macaco",
+                "Chave de roda",
+                "Triangulo",
+                "Coletes refletivos se houver",
+                "Cones ou fita de isolamento",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Escatologia",
+          accent: "#f59e0b",
+          ideas: [
+            {
+              title: "Esperanca crista sem medo",
+              badge: "ensino biblico",
+              description:
+                "O palestrante apresenta os temas centrais da escatologia com equilibrio: esperanca, vigilancia, responsabilidade e consolo. A interacao acontece por perguntas e leitura de textos-chave.",
+              materials: [
+                "Biblias",
+                "Telão ou TV",
+                "Cartoes com referencias biblicas",
+                "Folhas para perguntas",
+                "Canetas",
+              ],
+            },
+            {
+              title: "Perguntas dificeis, respostas responsaveis",
+              badge: "dialogo",
+              description:
+                "Os participantes enviam perguntas anonimas. O palestrante responde diferenciando texto biblico, interpretacao e especulacao, ajudando o grupo a pensar com maturidade.",
+              materials: [
+                "Caixa para perguntas",
+                "Papeis pequenos",
+                "Canetas",
+                "Quadro ou flip chart",
+                "Biblias",
+                "Marcadores",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Impressao 3D",
+          accent: "#38bdf8",
+          ideas: [
+            {
+              title: "O caminho da ideia ao objeto",
+              badge: "demonstracao",
+              description:
+                "O palestrante mostra como funciona a impressao 3D, desde o modelo digital ate o objeto final. A atividade e pensar em usos reais e acompanhar uma preparacao simples.",
+              materials: [
+                "Impressora 3D",
+                "Filamento PLA",
+                "Notebook com slicer",
+                "Telão ou TV",
+                "Pecas impressas de exemplo",
+                "Papel para anotacoes",
+              ],
+            },
+            {
+              title: "Prototipos que resolvem problemas",
+              badge: "criatividade aplicada",
+              description:
+                "Depois da explicacao tecnica, o grupo observa problemas simples do dia a dia e imagina objetos que poderiam ajudar. Nao precisa imprimir tudo: o foco e entender possibilidade e processo.",
+              materials: [
+                "Telão ou TV",
+                "Exemplos de pecas 3D",
+                "Post-its",
+                "Canetas",
+                "Regua ou trena",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Produtividade e gestao de tempo",
+          accent: "#84cc16",
+          ideas: [
+            {
+              title: "Tempo, prioridade e descanso",
+              badge: "formacao pessoal",
+              description:
+                "O palestrante fala sobre prioridades, foco, descanso e limites. A aplicacao e cada participante olhar para a propria semana e escolher um ajuste concreto.",
+              materials: [
+                "Modelos de agenda semanal",
+                "Canetas marca-texto",
+                "Post-its",
+                "Cronometro",
+                "Quadro ou flip chart",
+              ],
+            },
+            {
+              title: "Como lidar com distracoes",
+              badge: "habitos",
+              description:
+                "Uma conversa sobre celular, ansiedade, procrastinacao e ambiente. A pratica e montar combinados pessoais de foco para estudo, trabalho ou devocional.",
+              materials: [
+                "Telão ou TV",
+                "Folhas de plano pessoal",
+                "Canetas",
+                "Cartoes de distracoes",
+                "Cronometro",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Lideranca",
+          accent: "#fb7185",
+          ideas: [
+            {
+              title: "Lideranca que serve pessoas",
+              badge: "ensino + conversa",
+              description:
+                "O palestrante apresenta principios de lideranca servidora, influencia e responsabilidade. A interacao acontece por estudo de casos e perguntas sobre situacoes reais.",
+              materials: [
+                "Telão ou TV",
+                "Cartoes de estudos de caso",
+                "Quadro ou flip chart",
+                "Canetas",
+                "Folhas de anotacao",
+              ],
+            },
+            {
+              title: "Conversas dificeis com maturidade",
+              badge: "comunicacao",
+              description:
+                "A proposta e ensinar escuta, feedback e postura em conflitos. A pratica pode ser uma analise guiada de situacoes, sem forcar encenacoes desconfortaveis.",
+              materials: [
+                "Cartoes de situacoes",
+                "Roteiro de conversa",
+                "Canetas",
+                "Cadeiras em circulo",
+                "Quadro ou flip chart",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Financas e investimentos",
+          accent: "#facc15",
+          ideas: [
+            {
+              title: "Dinheiro, escolhas e responsabilidade",
+              badge: "educacao financeira",
+              description:
+                "O palestrante explica orçamento, consumo, reserva e prioridades. A aplicacao e uma simulacao simples de escolhas do mes para mostrar consequencias reais.",
+              materials: [
+                "Telão ou TV",
+                "Cartoes de despesas",
+                "Cartoes de imprevistos",
+                "Calculadoras ou celulares",
+                "Planilha impressa",
+              ],
+            },
+            {
+              title: "Primeiros investimentos com prudencia",
+              badge: "clareza",
+              description:
+                "Uma introducao cuidadosa sobre juros, risco, prazo e promessas perigosas. No final, cada participante define uma meta financeira simples e possivel.",
+              materials: [
+                "Telão ou TV",
+                "Calculadoras ou celulares",
+                "Tabela comparativa impressa",
+                "Folhas de meta financeira",
+                "Canetas",
+              ],
+            },
+          ],
+        },
+      ];
+
+      function createParticipantId() {
+        if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+        return `participante-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      }
+
+      const voteCollector = {
+        // Crie um Google Forms, pegue a URL que termina em /formResponse
+        // e os nomes dos campos entry.xxxxx no HTML do formulario.
+        enabled: true,
+        formAction:
+          "https://docs.google.com/forms/d/e/1FAIpQLSf5TMnmTZhEnZ3WVzmQuqX5OGDny7Q99mIdHpcs_8JG2xVmoA/formResponse",
+        fields: {
+          participantId: "entry.286675116",
+          workshop: "entry.998357638",
+          idea: "entry.307973942",
+          voteKey: "entry.389809482",
+        },
+      };
+
+      const slides = workshops.flatMap((workshop, workshopIndex) =>
+        workshop.ideas.map((idea, ideaIndex) => ({
+          workshop,
+          workshopIndex,
+          idea,
+          ideaIndex,
+        })),
+      );
+
+      const state = {
+        index: Number(localStorage.getItem("origens.slideIndex") || 0),
+        selected: JSON.parse(
+          localStorage.getItem("origens.selectedVotes") || "{}",
+        ),
+        votes: JSON.parse(localStorage.getItem("origens.voteTotals") || "{}"),
+        participantId:
+          localStorage.getItem("origens.participantId") ||
+          createParticipantId(),
+      };
+
+      localStorage.setItem("origens.participantId", state.participantId);
+
+      const app = document.querySelector("#app");
+      const track = document.querySelector("#track");
+      const bar = document.querySelector("#bar");
+      const adminPanel = document.querySelector("#adminPanel");
+      const adminJson = document.querySelector("#adminJson");
+      const downloadVotes = document.querySelector("#downloadVotes");
+      const resetVotes = document.querySelector("#resetVotes");
+      const isAdminMode = new URLSearchParams(location.search).has("admin");
+
+      function save() {
+        localStorage.setItem("origens.slideIndex", String(state.index));
+        localStorage.setItem(
+          "origens.selectedVotes",
+          JSON.stringify(state.selected),
+        );
+        localStorage.setItem("origens.voteTotals", JSON.stringify(state.votes));
+      }
+
+      function slideNumber(index) {
+        return String(index + 1).padStart(2, "0");
+      }
+
+      function titleSizeClass(title) {
+        if (title.length >= 38) return "xlong-title";
+        if (title.length >= 27) return "long-title";
+        return "";
+      }
+
+      function voteKey(workshopIndex, ideaIndex) {
+        return `${workshopIndex}.${ideaIndex}`;
+      }
+
+      function canSendToCollector() {
+        return (
+          voteCollector.enabled &&
+          voteCollector.formAction &&
+          voteCollector.fields.participantId &&
+          voteCollector.fields.workshop &&
+          voteCollector.fields.idea &&
+          voteCollector.fields.voteKey
+        );
+      }
+
+      function sendVoteToCollector(slide) {
+        if (!canSendToCollector()) return Promise.resolve(false);
+
+        const payload = new URLSearchParams();
+        payload.set(voteCollector.fields.participantId, state.participantId);
+        payload.set(voteCollector.fields.workshop, slide.workshop.title);
+        payload.set(voteCollector.fields.idea, slide.idea.title);
+        payload.set(
+          voteCollector.fields.voteKey,
+          `${slide.workshop.title} | ${slide.idea.title}`,
+        );
+
+        return fetch(voteCollector.formAction, {
+          method: "POST",
+          mode: "no-cors",
+          body: payload,
+        }).then(() => true);
+      }
+
+      function voteSnapshot() {
+        const totals = workshops.map((workshop, workshopIndex) => {
+          const ideas = workshop.ideas.map((idea, ideaIndex) => ({
+            ideaIndex,
+            ideaTitle: idea.title,
+            votes: state.votes[voteKey(workshopIndex, ideaIndex)] || 0,
+          }));
+          const sorted = [...ideas].sort(
+            (a, b) => b.votes - a.votes || a.ideaIndex - b.ideaIndex,
+          );
+          const winner =
+            sorted[0]?.votes > 0
+              ? sorted.length > 1 && sorted[0].votes === sorted[1].votes
+                ? { status: "Empate", votes: sorted[0].votes }
+                : { status: "Mais votada", ...sorted[0] }
+              : null;
+
+          return {
+            workshopIndex,
+            workshopTitle: workshop.title,
+            totalVotes: ideas.reduce((sum, idea) => sum + idea.votes, 0),
+            ideas,
+            winner,
+          };
+        });
+
+        return {
+          updatedAt: new Date().toISOString(),
+          storage: "localStorage",
+          warning:
+            "Estes votos existem apenas neste navegador. GitHub Pages nao grava um JSON global.",
+          totals,
+        };
+      }
+
+      function updateAdminPanel() {
+        if (!isAdminMode) return;
+        adminPanel.hidden = false;
+        adminJson.textContent = JSON.stringify(voteSnapshot(), null, 2);
+      }
+
+      function renderSlides() {
+        track.innerHTML = slides
+          .map(
+            (slide, index) => `
+        <section class="slide" style="--accent: ${slide.workshop.accent}">
+          <article class="content">
+            <div class="topbar">
+              <div class="brand">
+                <div class="mark">O</div>
+                <span>Origens Workshops</span>
+              </div>
+              <div class="counter">${slideNumber(index)} / ${slides.length}</div>
+            </div>
+
+            <main class="stage">
+              <div class="workshop">${slide.workshop.title}</div>
+            
+              <h1 class="${titleSizeClass(slide.idea.title)}">${slide.idea.title}</h1>
+              <p class="description">${slide.idea.description}</p>
+              <ul class="materials">
+                ${slide.idea.materials.map((material) => `<li>${material}</li>`).join("")}
+              </ul>
+            </main>
+
+            <div class="bottombar">
+              <button class="vote" type="button" data-vote="${index}">Votar nesta ideia</button>
+              <div class="nav">
+                <button class="nav-btn" type="button" data-prev aria-label="Slide anterior">‹</button>
+                <button class="nav-btn" type="button" data-next aria-label="Proximo slide">›</button>
+              </div>
+            </div>
+          </article>
+        </section>
+      `,
+          )
+          .join("");
+      }
+
+      async function submitVote(slideIndex) {
+        const slide = slides[slideIndex];
+        const workshopKey = String(slide.workshopIndex);
+        const previousIdeaIndex = state.selected[workshopKey];
+
+        if (previousIdeaIndex !== undefined) {
+          updateVoteButtons();
+          return;
+        }
+
+        const currentKey = voteKey(slide.workshopIndex, slide.ideaIndex);
+        state.votes[currentKey] = (state.votes[currentKey] || 0) + 1;
+
+        state.selected[String(slide.workshopIndex)] = slide.ideaIndex;
+        save();
+        updateVoteButtons();
+        updateAdminPanel();
+
+        await sendVoteToCollector(slide);
+      }
+
+      function updateVoteButtons() {
+        document.querySelectorAll("[data-vote]").forEach((button) => {
+          const slideIndex = Number(button.dataset.vote);
+          const slide = slides[slideIndex];
+          const workshopVote = state.selected[String(slide.workshopIndex)];
+          const selected =
+            workshopVote === slide.ideaIndex;
+          button.classList.toggle("selected", selected);
+          button.disabled = workshopVote !== undefined;
+          button.textContent = selected
+            ? "Voto enviado"
+            : workshopVote !== undefined
+              ? "Voto ja registrado"
+              : "Votar nesta ideia";
+        });
+      }
+
+      function bindActions() {
+        document.querySelectorAll("[data-vote]").forEach((button) => {
+          button.addEventListener("click", async () => {
+            button.disabled = true;
+            button.textContent = "Enviando voto...";
+
+            try {
+              await submitVote(Number(button.dataset.vote));
+              updateVoteButtons();
+            } catch {
+              button.disabled = false;
+              button.textContent = "Erro ao enviar";
+              setTimeout(updateVoteButtons, 1600);
+            }
+          });
+        });
+
+        document.querySelectorAll("[data-prev]").forEach((button) => {
+          button.addEventListener("click", () => goTo(state.index - 1));
+        });
+
+        document.querySelectorAll("[data-next]").forEach((button) => {
+          button.addEventListener("click", () => goTo(state.index + 1));
+        });
+      }
+
+      function goTo(index) {
+        state.index = Math.max(0, Math.min(index, slides.length - 1));
+        save();
+        updateView();
+      }
+
+      function updateView() {
+        const current = slides[state.index];
+        app.style.setProperty("--accent", current.workshop.accent);
+        track.style.transform = `translateX(${-state.index * 100}%)`;
+        bar.style.width = `${((state.index + 1) / slides.length) * 100}%`;
+        bar.style.background = current.workshop.accent;
+
+        document.querySelectorAll("[data-prev]").forEach((button) => {
+          button.disabled = state.index === 0;
+        });
+
+        document.querySelectorAll("[data-next]").forEach((button) => {
+          button.disabled = state.index === slides.length - 1;
+        });
+      }
+
+      let startX = 0;
+      let startY = 0;
+
+      track.addEventListener(
+        "touchstart",
+        (event) => {
+          startX = event.touches[0].clientX;
+          startY = event.touches[0].clientY;
+        },
+        { passive: true },
+      );
+
+      track.addEventListener(
+        "touchend",
+        (event) => {
+          const endX = event.changedTouches[0].clientX;
+          const endY = event.changedTouches[0].clientY;
+          const deltaX = endX - startX;
+          const deltaY = endY - startY;
+
+          if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY))
+            return;
+          goTo(state.index + (deltaX < 0 ? 1 : -1));
+        },
+        { passive: true },
+      );
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") goTo(state.index + 1);
+        if (event.key === "ArrowLeft") goTo(state.index - 1);
+      });
+
+      downloadVotes.addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(voteSnapshot(), null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "votos-origens.json";
+        link.click();
+        URL.revokeObjectURL(url);
+      });
+
+      resetVotes.addEventListener("click", () => {
+        if (!confirm("Zerar os votos salvos neste aparelho?")) return;
+        state.votes = {};
+        state.selected = {};
+        save();
+        updateVoteButtons();
+        updateAdminPanel();
+      });
+
+      renderSlides();
+      bindActions();
+      updateVoteButtons();
+      updateView();
+      updateAdminPanel();
+    </script>
+  </body>
+</html>
