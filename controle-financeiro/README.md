@@ -45,9 +45,13 @@ A linha 4 de exemplo (`Templates utility (exemplo)`, R$ 45,00) é **substituída
 
 ### Definir a senha
 
-A senha já vem preenchida como `xandelele` na função `definirPin()`. Ainda no editor:
+Ainda no editor:
 
-1. No seletor de função no topo, escolha **definirPin** e clique **Executar**.
+1. Na função `definirPin()`, preencha a senha que você quer usar:
+   ```js
+   var SENHA = 'sua-senha-aqui';
+   ```
+   Depois escolha **definirPin** no seletor de função do topo e clique **Executar**.
 2. Vai aparecer a tela de autorização — é aqui que você passa pelo "app não verificado" (detalhado no passo 2).
 3. Depois de rodar com sucesso, **volte e apague o valor**, deixando:
    ```js
