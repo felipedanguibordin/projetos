@@ -1,0 +1,793 @@
+/* ==========================================================================
+   Caixa DentBot — folha de estilo
+   Mobile-first. Tudo em custom properties. Tema claro e escuro automáticos.
+   ========================================================================== */
+
+:root {
+  /* --- escala de espaçamento --- */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 24px;
+  --e-6: 32px;
+  --e-7: 48px;
+
+  /* --- raios --- */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* --- tipografia --- */
+  --fonte: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --fonte-num: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* --- movimento --- */
+  --t-rapido: 120ms cubic-bezier(.2, 0, .2, 1);
+  --t-medio: 220ms cubic-bezier(.2, 0, .2, 1);
+
+  /* --- alturas de toque --- */
+  --toque: 52px;
+
+  /* --- paleta clara --- */
+  --fundo: #f4f5f7;
+  --fundo-elevado: #ffffff;
+  --fundo-sutil: #eceef2;
+  --borda: #e0e3e9;
+  --borda-forte: #ccd1da;
+  --texto: #161a20;
+  --texto-suave: #626b78;
+  --texto-fraco: #8b93a0;
+
+  --tinta-despesa: #c0453f;
+  --tinta-despesa-suave: #fbeceb;
+  --tinta-receita: #2f7d5c;
+  --tinta-receita-suave: #e8f4ee;
+  --tinta-neutra: #2c3a4b;
+
+  --sombra-1: 0 1px 2px rgba(16, 22, 32, .05), 0 1px 3px rgba(16, 22, 32, .04);
+  --sombra-2: 0 2px 6px rgba(16, 22, 32, .06), 0 8px 24px rgba(16, 22, 32, .06);
+  --sombra-3: 0 12px 32px rgba(16, 22, 32, .16);
+
+  /* cor de destaque do momento — trocada pelo JS conforme o tipo */
+  --tinta: var(--tinta-despesa);
+  --tinta-suave: var(--tinta-despesa-suave);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f1318;
+    --fundo-elevado: #171c23;
+    --fundo-sutil: #1e242c;
+    --borda: #262e38;
+    --borda-forte: #333d4a;
+    --texto: #e9edf2;
+    --texto-suave: #98a2b0;
+    --texto-fraco: #6d7684;
+
+    --tinta-despesa: #e8837c;
+    --tinta-despesa-suave: #2a1a1b;
+    --tinta-receita: #6cc79a;
+    --tinta-receita-suave: #15251d;
+    --tinta-neutra: #c3ccd8;
+
+    --sombra-1: 0 1px 2px rgba(0, 0, 0, .35);
+    --sombra-2: 0 2px 8px rgba(0, 0, 0, .4), 0 12px 28px rgba(0, 0, 0, .3);
+    --sombra-3: 0 14px 36px rgba(0, 0, 0, .55);
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: contain;
+}
+
+h1, h2, p, ul { margin: 0; }
+ul { list-style: none; padding: 0; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+[hidden] { display: none !important; }
+
+::selection { background: var(--tinta-suave); }
+
+:focus-visible {
+  outline: 2px solid var(--tinta);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.app {
+  max-width: 560px;
+  margin: 0 auto;
+  padding-bottom: calc(var(--e-7) + env(safe-area-inset-bottom));
+}
+
+.conteudo {
+  padding: 0 var(--e-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-5);
+}
+
+.topo {
+  padding: calc(var(--e-4) + env(safe-area-inset-top)) var(--e-4) var(--e-5);
+}
+
+.topo-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--e-4);
+}
+
+.marca {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--texto-suave);
+}
+.marca span { color: var(--tinta); transition: color var(--t-medio); }
+
+.botao-icone {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--borda);
+  border-radius: var(--r-pill);
+  background: var(--fundo-elevado);
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: transform var(--t-rapido), color var(--t-rapido), border-color var(--t-rapido);
+}
+.botao-icone:active { transform: scale(.92); }
+.botao-icone svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.botao-icone.girando svg { animation: girar .8s linear infinite; }
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+/* ==========================================================================
+   Resumo do mês — os números são o herói da tela
+   ========================================================================== */
+
+.resumo {
+  background: var(--fundo-elevado);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-xl);
+  padding: var(--e-5);
+  box-shadow: var(--sombra-2);
+}
+
+.resumo-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-2);
+}
+
+.resumo-rotulo {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+.resumo-rotulo b { color: var(--texto); font-weight: 600; }
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px var(--e-2);
+  border-radius: var(--r-pill);
+  background: var(--fundo-sutil);
+  color: var(--texto-suave);
+  white-space: nowrap;
+}
+
+.resumo-saldo {
+  font-family: var(--fonte-num);
+  font-size: clamp(34px, 11vw, 44px);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin: var(--e-2) 0 var(--e-4);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--t-medio);
+}
+.resumo-saldo.positivo { color: var(--tinta-receita); }
+.resumo-saldo.negativo { color: var(--tinta-despesa); }
+
+.resumo-quebra {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  padding-top: var(--e-4);
+  border-top: 1px solid var(--borda);
+}
+.resumo-item { flex: 1; min-width: 0; }
+.resumo-divisor { width: 1px; align-self: stretch; background: var(--borda); }
+
+.resumo-item-rotulo {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--texto-fraco);
+  margin-bottom: 2px;
+}
+.resumo-item-valor {
+  display: block;
+  font-family: var(--fonte-num);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.positivo { color: var(--tinta-receita); }
+.negativo { color: var(--tinta-despesa); }
+
+.carregando-texto { color: var(--texto-fraco); }
+
+/* ==========================================================================
+   Alternador Despesa / Receita
+   ========================================================================== */
+
+.alternador {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  background: var(--fundo-sutil);
+  border-radius: var(--r-pill);
+  isolation: isolate;
+}
+
+.alternador-indicador {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: var(--r-pill);
+  background: var(--fundo-elevado);
+  box-shadow: var(--sombra-1);
+  transition: transform var(--t-medio);
+}
+.app[data-tipo="receita"] .alternador-indicador { transform: translateX(100%); }
+
+.alternador-opcao {
+  position: relative;
+  z-index: 1;
+  height: var(--toque);
+  border: 0;
+  background: none;
+  border-radius: var(--r-pill);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: color var(--t-medio);
+  -webkit-tap-highlight-color: transparent;
+}
+.alternador-opcao[aria-selected="true"] { color: var(--tinta); }
+
+/* ==========================================================================
+   Chips de lançamento rápido
+   ========================================================================== */
+
+.chips {
+  display: flex;
+  gap: var(--e-2);
+  overflow-x: auto;
+  margin: calc(var(--e-5) * -1) calc(var(--e-4) * -1) 0;
+  padding: 0 var(--e-4);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chips:empty { display: none; }
+
+.chip {
+  flex: 0 0 auto;
+  height: 38px;
+  padding: 0 var(--e-4);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-pill);
+  background: var(--fundo-elevado);
+  color: var(--texto-suave);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform var(--t-rapido), background var(--t-rapido), color var(--t-rapido), border-color var(--t-rapido);
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:active { transform: scale(.94); }
+.chip.ativo {
+  background: var(--tinta-suave);
+  border-color: transparent;
+  color: var(--tinta);
+}
+
+/* ==========================================================================
+   Cartões e formulário
+   ========================================================================== */
+
+.cartao {
+  background: var(--fundo-elevado);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sombra-1);
+}
+
+.formulario {
+  padding: var(--e-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+
+.campo { display: flex; flex-direction: column; gap: 6px; }
+
+.campo label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-suave);
+  letter-spacing: -.005em;
+}
+.opcional {
+  font-weight: 500;
+  color: var(--texto-fraco);
+  font-size: 12px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: var(--toque);
+  padding: var(--e-3) var(--e-4);
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--r-md);
+  background: var(--fundo);
+  color: var(--texto);
+  transition: border-color var(--t-rapido), box-shadow var(--t-rapido), background var(--t-rapido);
+  appearance: none;
+  -webkit-appearance: none;
+}
+.campo textarea { min-height: 0; resize: vertical; line-height: 1.45; }
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--tinta);
+  box-shadow: 0 0 0 3px var(--tinta-suave);
+  background: var(--fundo-elevado);
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder { color: var(--texto-fraco); }
+
+.campo select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b93a0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--e-4) center;
+  background-size: 18px;
+  padding-right: var(--e-6);
+}
+
+/* campo de valor, o mais importante da tela */
+.entrada-valor {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  padding: 0 var(--e-4);
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--r-md);
+  background: var(--fundo);
+  transition: border-color var(--t-rapido), box-shadow var(--t-rapido), background var(--t-rapido);
+}
+.entrada-valor:focus-within {
+  border-color: var(--tinta);
+  box-shadow: 0 0 0 3px var(--tinta-suave);
+  background: var(--fundo-elevado);
+}
+.entrada-valor .prefixo {
+  font-family: var(--fonte-num);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--texto-fraco);
+}
+.entrada-valor input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  padding: var(--e-3) 0;
+  min-height: 56px;
+  font-family: var(--fonte-num);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta);
+  transition: color var(--t-medio);
+}
+.entrada-valor input:focus { outline: none; box-shadow: none; }
+
+.form-erro {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tinta-despesa);
+  background: var(--tinta-despesa-suave);
+  padding: var(--e-3) var(--e-4);
+  border-radius: var(--r-md);
+}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: var(--toque);
+  padding: 0 var(--e-5);
+  border: 0;
+  border-radius: var(--r-md);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--t-rapido), opacity var(--t-rapido), background var(--t-medio);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: scale(.98); }
+.btn[disabled] { opacity: .6; cursor: default; }
+.btn[disabled]:active { transform: none; }
+
+.btn-principal { background: var(--tinta); color: #fff; }
+@media (prefers-color-scheme: dark) {
+  .btn-principal { color: #10151b; }
+}
+
+.btn-enviar { margin-top: var(--e-2); min-height: 56px; }
+
+.btn-secundario {
+  background: var(--fundo-sutil);
+  color: var(--texto);
+  min-height: 44px;
+  font-size: 14px;
+}
+
+.spinner {
+  display: none;
+  width: 17px;
+  height: 17px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: girar .6s linear infinite;
+}
+.btn.ocupado .spinner { display: block; }
+.btn.ocupado .btn-texto { opacity: .65; }
+
+.link {
+  border: 0;
+  background: none;
+  color: var(--texto-fraco);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: var(--e-3);
+}
+
+/* ==========================================================================
+   Fila offline
+   ========================================================================== */
+
+.fila {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-4);
+  border-radius: var(--r-lg);
+  background: var(--tinta-despesa-suave);
+  border: 1px solid transparent;
+}
+.fila-texto { flex: 1; font-size: 13px; line-height: 1.35; color: var(--texto-suave); }
+.fila-texto strong { display: block; color: var(--texto); font-size: 14px; }
+
+/* ==========================================================================
+   Lista de lançamentos
+   ========================================================================== */
+
+.secao-titulo {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--texto-fraco);
+  margin-bottom: var(--e-3);
+  padding-left: var(--e-1);
+}
+
+.lancamentos { display: flex; flex-direction: column; gap: var(--e-2); }
+
+.lancamento {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-3) var(--e-4);
+  background: var(--fundo-elevado);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-md);
+  animation: surgir var(--t-medio) both;
+}
+
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.lancamento-marca {
+  flex: 0 0 auto;
+  width: 4px;
+  align-self: stretch;
+  border-radius: var(--r-pill);
+  background: var(--tinta-despesa);
+}
+.lancamento[data-tipo="receita"] .lancamento-marca { background: var(--tinta-receita); }
+
+.lancamento-corpo { flex: 1; min-width: 0; }
+
+.lancamento-titulo {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lancamento-meta {
+  font-size: 12px;
+  color: var(--texto-fraco);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lancamento-valor {
+  font-family: var(--fonte-num);
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.lancamento-excluir {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--texto-fraco);
+  cursor: pointer;
+  transition: color var(--t-rapido), background var(--t-rapido), transform var(--t-rapido);
+  -webkit-tap-highlight-color: transparent;
+}
+.lancamento-excluir:active { transform: scale(.9); }
+.lancamento-excluir:hover { color: var(--tinta-despesa); background: var(--tinta-despesa-suave); }
+.lancamento-excluir svg {
+  width: 17px; height: 17px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.vazio {
+  padding: var(--e-6) var(--e-4);
+  text-align: center;
+  font-size: 14px;
+  color: var(--texto-fraco);
+}
+
+.rodape { text-align: center; padding-top: var(--e-2); }
+
+/* ==========================================================================
+   Toast
+   ========================================================================== */
+
+.toast {
+  position: fixed;
+  z-index: 50;
+  left: var(--e-4);
+  right: var(--e-4);
+  bottom: calc(var(--e-4) + env(safe-area-inset-bottom));
+  max-width: 528px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-4);
+  border-radius: var(--r-lg);
+  background: var(--tinta-neutra);
+  color: var(--fundo-elevado);
+  box-shadow: var(--sombra-3);
+  overflow: hidden;
+  animation: subir var(--t-medio) both;
+}
+@media (prefers-color-scheme: dark) {
+  .toast { color: #10151b; }
+}
+.toast.saindo { animation: descer var(--t-medio) both; }
+.toast.erro { background: var(--tinta-despesa); color: #fff; }
+
+@keyframes subir {
+  from { opacity: 0; transform: translateY(120%); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes descer {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(120%); }
+}
+
+.toast-texto { flex: 1; font-size: 14px; font-weight: 500; line-height: 1.35; }
+
+.toast-acao {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 var(--e-4);
+  border: 0;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, .16);
+  color: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+@media (prefers-color-scheme: dark) {
+  .toast-acao { background: rgba(0, 0, 0, .16); }
+}
+
+.toast-progresso {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: currentColor;
+  opacity: .35;
+  transform-origin: left;
+}
+.toast-progresso.correndo { animation: esvaziar linear both; }
+
+@keyframes esvaziar {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* ==========================================================================
+   Tela de PIN
+   ========================================================================== */
+
+.pin-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--e-5);
+  background: var(--fundo);
+}
+
+.pin-card {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  text-align: center;
+}
+
+.pin-mark {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--e-2);
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-lg);
+  background: var(--tinta-receita-suave);
+  color: var(--tinta-receita);
+  font-size: 30px;
+  font-weight: 700;
+  font-family: var(--fonte-num);
+}
+
+.pin-titulo { font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.pin-sub { font-size: 14px; color: var(--texto-suave); margin-bottom: var(--e-3); }
+
+.pin-input {
+  width: 100%;
+  min-height: 60px;
+  padding: var(--e-3);
+  text-align: center;
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--r-md);
+  background: var(--fundo-elevado);
+  font-family: var(--fonte-num);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-indent: .22em;
+}
+.pin-input:focus {
+  outline: none;
+  border-color: var(--tinta-receita);
+  box-shadow: 0 0 0 3px var(--tinta-receita-suave);
+}
+
+.pin-erro {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tinta-despesa);
+}
+
+#form-pin .btn-principal { background: var(--tinta-receita); }
+
+/* ==========================================================================
+   Preferências do sistema
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* telas maiores: o formulário ganha duas colunas, o resto continua igual */
+@media (min-width: 620px) {
+  .formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--e-4) var(--e-4);
+  }
+  .campo-valor,
+  .formulario .form-erro,
+  .formulario .btn-enviar { grid-column: 1 / -1; }
+  .campo:has(textarea) { grid-column: 1 / -1; }
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caixa — DentBot</title>
+<meta name="description" content="Lançamento rápido de despesas e recebimentos do DentBot.">
+
+<!-- Adicionar à tela de início -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1720" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caixa">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ------------------------------------------------------------------ -->
+<!-- Tela de PIN                                                         -->
+<!-- ------------------------------------------------------------------ -->
+<div id="tela-pin" class="pin-overlay" hidden>
+  <form class="pin-card" id="form-pin" autocomplete="off">
+    <div class="pin-mark" aria-hidden="true">₵</div>
+    <h1 class="pin-titulo">Caixa DentBot</h1>
+    <p class="pin-sub">Digite a senha para liberar os lançamentos.</p>
+    <input
+      id="campo-pin"
+      class="pin-input"
+      type="password"
+      autocapitalize="off"
+      autocorrect="off"
+      spellcheck="false"
+      autocomplete="current-password"
+      maxlength="64"
+      placeholder="••••••"
+      aria-label="Senha de acesso"
+      required>
+    <p class="pin-erro" id="pin-erro" role="alert" hidden></p>
+    <button class="btn btn-principal" type="submit" id="btn-pin">
+      <span class="btn-texto">Entrar</span>
+      <span class="spinner" aria-hidden="true"></span>
+    </button>
+  </form>
+</div>
+
+<!-- ------------------------------------------------------------------ -->
+<!-- App                                                                 -->
+<!-- ------------------------------------------------------------------ -->
+<div id="app" class="app" data-tipo="despesa" hidden>
+
+  <header class="topo">
+    <div class="topo-linha">
+      <h1 class="marca">Caixa <span>DentBot</span></h1>
+      <button class="botao-icone" id="btn-recarregar" type="button" aria-label="Recarregar dados">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 4v5h-5"/></svg>
+      </button>
+    </div>
+
+    <!-- Resumo do mês -->
+    <section class="resumo" id="resumo" aria-label="Resumo do mês">
+      <div class="resumo-cabecalho">
+        <span class="resumo-rotulo">Saldo de <b id="resumo-mes">—</b></span>
+        <span class="badge" id="resumo-pendente" hidden></span>
+      </div>
+      <p class="resumo-saldo" id="resumo-saldo">R$&nbsp;—</p>
+      <div class="resumo-quebra">
+        <div class="resumo-item">
+          <span class="resumo-item-rotulo">Receitas</span>
+          <span class="resumo-item-valor positivo" id="resumo-receitas">—</span>
+        </div>
+        <div class="resumo-divisor" aria-hidden="true"></div>
+        <div class="resumo-item">
+          <span class="resumo-item-rotulo">Despesas</span>
+          <span class="resumo-item-valor negativo" id="resumo-despesas">—</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Toggle Despesa / Receita -->
+    <div class="alternador" role="tablist" aria-label="Tipo de lançamento">
+      <span class="alternador-indicador" aria-hidden="true"></span>
+      <button class="alternador-opcao" role="tab" type="button" data-tipo="despesa" aria-selected="true">Despesa</button>
+      <button class="alternador-opcao" role="tab" type="button" data-tipo="receita" aria-selected="false">Receita</button>
+    </div>
+
+    <!-- Chips de lançamento rápido -->
+    <div class="chips" id="chips" aria-label="Lançamento rápido"></div>
+
+    <!-- Formulário -->
+    <form class="cartao formulario" id="formulario" novalidate>
+
+      <div class="campo campo-valor">
+        <label for="f-valor">Valor</label>
+        <div class="entrada-valor">
+          <span class="prefixo">R$</span>
+          <input
+            id="f-valor"
+            name="valor"
+            type="text"
+            inputmode="decimal"
+            placeholder="0,00"
+            autocomplete="off"
+            required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="f-descricao"><span data-rotulo="descricao">Descrição</span></label>
+        <input id="f-descricao" name="descricao" type="text" placeholder="Do que se trata" autocomplete="off" required>
+      </div>
+
+      <div class="campo">
+        <label for="f-categoria"><span data-rotulo="categoria">Categoria</span></label>
+        <select id="f-categoria" name="categoria"></select>
+      </div>
+
+      <!-- Só despesa -->
+      <div class="campo" data-so="despesa">
+        <label for="f-fornecedor">Fornecedor</label>
+        <input id="f-fornecedor" name="fornecedor" type="text" placeholder="Quem cobrou" autocomplete="off">
+      </div>
+
+      <!-- Só receita -->
+      <div class="campo" data-so="receita">
+        <label for="f-meio">Meio de pagamento</label>
+        <select id="f-meio" name="meio"></select>
+      </div>
+
+      <div class="campo" data-so="receita">
+        <label for="f-status">Status</label>
+        <select id="f-status" name="status"></select>
+      </div>
+
+      <div class="campo">
+        <label for="f-data">Data</label>
+        <input id="f-data" name="data" type="date" required>
+      </div>
+
+      <div class="campo">
+        <label for="f-observacao">Observação <span class="opcional">opcional</span></label>
+        <textarea id="f-observacao" name="observacao" rows="2" placeholder="Alguma nota"></textarea>
+      </div>
+
+      <p class="form-erro" id="form-erro" role="alert" hidden></p>
+
+      <button class="btn btn-principal btn-enviar" type="submit" id="btn-enviar">
+        <span class="btn-texto">Lançar despesa</span>
+        <span class="spinner" aria-hidden="true"></span>
+      </button>
+    </form>
+
+    <!-- Fila offline -->
+    <section class="fila" id="fila" hidden>
+      <div class="fila-texto">
+        <strong id="fila-contagem">0 lançamentos</strong>
+        <span>não enviados — guardados neste aparelho.</span>
+      </div>
+      <button class="btn btn-secundario" type="button" id="btn-reenviar">Reenviar</button>
+    </section>
+
+    <!-- Últimos lançamentos -->
+    <section class="lista" aria-label="Últimos lançamentos">
+      <h2 class="secao-titulo">Últimos lançamentos</h2>
+      <ul class="lancamentos" id="lancamentos"></ul>
+      <p class="vazio" id="lista-vazio" hidden>Nenhum lançamento ainda.</p>
+    </section>
+
+    <footer class="rodape">
+      <button class="link" type="button" id="btn-sair">Sair</button>
+    </footer>
+  </main>
+</div>
+
+<!-- Toast (sucesso + desfazer) -->
+<div class="toast" id="toast" role="status" aria-live="polite" hidden>
+  <span class="toast-texto" id="toast-texto"></span>
+  <button class="toast-acao" type="button" id="toast-acao" hidden></button>
+  <span class="toast-progresso" id="toast-progresso" aria-hidden="true"></span>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
