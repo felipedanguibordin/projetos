@@ -10,9 +10,12 @@ permissions:
   pages: write
   id-token: write
 
+# Não cancelar no meio do caminho: um cancelamento durante o passo de deploy
+# deixa a deployment órfã no backend do Pages, e as seguintes ficam presas em
+# "deployment_queued" esperando um lock que ninguém libera.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
